@@ -1,0 +1,164 @@
+# update_site_manifest.ps1
+# Scans assets/videos and assets/papers to generate js/manifest.js
+
+$manifestPath = "js/manifest.js"
+$videoPath = "assets/videos"
+$papersPath = "assets/papers"
+
+# Helper to format titles: "AV1_Retina__Hidden_Eye" -> "AV1 Retina: Hidden Eye"
+function Get-TitleFromFilename ($filename) {
+    return $filename -replace '__', ': ' -replace '_', ' '
+}
+
+# Metadata Mapping
+$paperMetadata = @{
+    "architectureofmind"                     = @{
+        title = "The Architecture of Mind"
+        desc  = "A unified framework establishing topological equivalence between biological neural networks and symbolic hypergraphs."
+        tag   = "Intelligence Theory"
+        year  = "2025"
+    }
+    "AV1Retina_Master"                       = @{
+        title = "The AV1 Retina"
+        desc  = "Repurposing commodity video codec hardware as ultra-low-power sensory preprocessors for machine vision."
+        tag   = "Hardware Architecture"
+        year  = "2025"
+    }
+    "biologicalethics"                       = @{
+        title = "Biological Architecture for Ethical AI"
+        desc  = "The Hormonal Motivation Framework: implementing biological principles for alignment rather than external constraints."
+        tag   = "AI Alignment"
+        year  = "2025"
+    }
+    "deception-compendium"                   = @{
+        title = "Emergent Deception in AI"
+        desc  = "A compendium arguing that deception is a natural consequence of optimisation in resource-constrained systems."
+        tag   = "AI Safety"
+        year  = "2025"
+    }
+    "edgeofchaos"                            = @{
+        title = "The Boundary of Brilliance"
+        desc  = "A tale of order, chaos, and universal minds. Exploring criticality as the optimal regime for intelligence."
+        tag   = "Complexity Science"
+        year  = "2025"
+    }
+    "EpistemicHomeostasis"                   = @{
+        title = "Epistemic Homeostasis"
+        desc  = "A Systems-Level Framework for AI Governance via Asymmetric Ising Dynamics."
+        tag   = "AI Governance"
+        year  = "2025"
+    }
+    "EpistemicHomeostasis_Orchestrator"      = @{
+        title = "Epistemic Homeostasis: Orchestrator"
+        desc  = "Technical implementation guide and experimental validation for the belief governance framework."
+        tag   = "Technical Report"
+        year  = "2025"
+    }
+    "evim_complete"                          = @{
+        title = "The Emergent Vortex-Information Model"
+        desc  = "A unified mathematical framework modeling intelligence as persistent, scale-free patterns of information flow."
+        tag   = "Intelligence Theory"
+        year  = "2025"
+    }
+    "growth-based-agi-whitepaper"            = @{
+        title = "Growth-Based AGI"
+        desc  = "Pathways to Artificial General Intelligence through iterative growth dynamics and architectural evolution."
+        tag   = "AGI Research"
+        year  = "2025"
+    }
+    "The Unified Mind Space (UMS) Framework" = @{
+        title = "The Unified Mind Space (UMS) Framework"
+        desc  = "A rigorous topological framework for mapping state-spaces of diverse cognitive systems."
+        tag   = "Cognitive Science"
+        year  = "2025"
+    }
+}
+
+# 1. Scan Videos
+$videos = @()
+if (Test-Path $videoPath) {
+    $videoFiles = Get-ChildItem -Path $videoPath -Include *.mp4, *.mov, *.webm -Recurse
+    foreach ($file in $videoFiles) {
+        # Default category logic (can be customized)
+        $cat = "Featured Content"
+        if ($file.Name -match "Technical") { $cat = "Technical Demo" }
+        if ($file.Name -match "Systems") { $cat = "System Architecture" }
+        
+        $videos += @{
+            id       = $file.BaseName
+            title    = (Get-TitleFromFilename $file.BaseName)
+            category = $cat
+            src      = "assets/videos/" + $file.Name
+        }
+    }
+}
+
+# 2. Scan Papers
+$dynamicPapers = @()
+if (Test-Path $papersPath) {
+    $paperFiles = Get-ChildItem -Path $papersPath -Include *.pdf -Recurse
+    foreach ($file in $paperFiles) {
+        $meta = $paperMetadata[$file.BaseName]
+        
+        $title = if ($meta) { $meta.title } else { (Get-TitleFromFilename $file.BaseName) }
+        $tag = if ($meta) { $meta.tag } else { "White Paper" }
+        $year = if ($meta) { $meta.year } else { "2025" }
+        $desc = if ($meta) { $meta.desc } else { "Downloadable PDF technical paper." }
+
+        $dynamicPapers += @{
+            title = $title
+            tag   = $tag
+            year  = $year
+            desc  = $desc
+            link  = "assets/papers/" + $file.Name
+        }
+    }
+}
+
+$staticPapers = @(
+    @{
+        title = "The Engineer’s Paradox"
+        tag   = "System Dynamics"
+        year  = "2024"
+        desc  = "Explores why instrumenting every component of a system often fails to explain the emergent whole."
+        link  = "#"
+    },
+    @{
+        title = "Cognition as Topology"
+        tag   = "Intelligence Theory"
+        year  = "2023"
+        desc  = "A proposal for substrate-independent intelligence."
+        link  = "#"
+    },
+    @{
+        title = "Energy Thrift & Constraint-Led Design"
+        tag   = "Engineering"
+        year  = "2023"
+        desc  = "Why capability is downstream of constraints."
+        link  = "#"
+    }
+)
+
+# Combine: Dynamic first, then static
+$allPapers = $dynamicPapers + $staticPapers
+
+# Convert to JSON
+$videoJson = $videos | ConvertTo-Json -Depth 2
+$paperJson = $allPapers | ConvertTo-Json -Depth 2
+
+
+# JavaScript Content
+$jsContent = @"
+// Auto-generated by update_site_manifest.ps1
+// Do not edit manually. Run the script to update.
+
+window.siteManifest = {
+    videos: $videoJson,
+    papers: $paperJson
+};
+"@
+
+# Write Manifest
+Set-Content -Path $manifestPath -Value $jsContent -Encoding UTF8
+Write-Host "Manifest generated at $manifestPath"
+Write-Host "Found $( $videos.Count ) videos."

@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fcfcfc;
+    color: #1a1a1a;
+}
+
+h1,
+h2,
+h3,
+h4,
+.serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.mechanic-grid {
+    background-image: linear-gradient(#e5e7eb 1px, transparent 1px),
+        linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+    transition: opacity 0.5s ease;
+}
+
+/* Reading Mode Utility */
+body.reading-mode .mechanic-grid {
+    opacity: 0.12;
+}
+
+/* Reading Typography Override for Chapter View */
+.chapter-prose p {
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+    max-width: 70ch;
+}
+
+.chapter-prose h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+    font-weight: 600;
+}
+
+.chapter-prose ol,
+.chapter-prose ul {
+    margin-bottom: 1.5em;
+    max-width: 70ch;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.hidden-view {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+/* --- New Sections: Media & Gallery --- */
+
+/* Video Section */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    margin-bottom: 1rem;
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Changed to contain for better video fit */
+}
+
+/* Video Carousel Thumbnails */
+.video-thumb {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+    border: 1px solid transparent;
+}
+
+.video-thumb:hover {
+    opacity: 0.9;
+}
+
+.video-thumb.active {
+    opacity: 1;
+    border-color: #000;
+    background-color: #f3f4f6;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: #f3f4f6;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover img {
+    opacity: 0.9;
+}

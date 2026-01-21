@@ -79,7 +79,6 @@ $videos = @()
 if (Test-Path $videoPath) {
     $videoFiles = Get-ChildItem -Path $videoPath -Include *.mp4, *.mov, *.webm -Recurse
     foreach ($file in $videoFiles) {
-        # Default category logic (can be customized)
         $cat = "Featured Content"
         if ($file.Name -match "Technical") { $cat = "Technical Demo" }
         if ($file.Name -match "Systems") { $cat = "System Architecture" }
@@ -93,8 +92,8 @@ if (Test-Path $videoPath) {
     }
 }
 
-# 2. Scan Papers
-$dynamicPapers = @()
+# 2. Scan Papers (only real PDFs, no placeholders)
+$allPapers = @()
 if (Test-Path $papersPath) {
     $paperFiles = Get-ChildItem -Path $papersPath -Include *.pdf -Recurse
     foreach ($file in $paperFiles) {
@@ -105,7 +104,7 @@ if (Test-Path $papersPath) {
         $year = if ($meta) { $meta.year } else { "2025" }
         $desc = if ($meta) { $meta.desc } else { "Downloadable PDF technical paper." }
 
-        $dynamicPapers += @{
+        $allPapers += @{
             title = $title
             tag   = $tag
             year  = $year
@@ -115,37 +114,9 @@ if (Test-Path $papersPath) {
     }
 }
 
-$staticPapers = @(
-    @{
-        title = "The Engineer’s Paradox"
-        tag   = "System Dynamics"
-        year  = "2024"
-        desc  = "Explores why instrumenting every component of a system often fails to explain the emergent whole."
-        link  = "#"
-    },
-    @{
-        title = "Cognition as Topology"
-        tag   = "Intelligence Theory"
-        year  = "2023"
-        desc  = "A proposal for substrate-independent intelligence."
-        link  = "#"
-    },
-    @{
-        title = "Energy Thrift & Constraint-Led Design"
-        tag   = "Engineering"
-        year  = "2023"
-        desc  = "Why capability is downstream of constraints."
-        link  = "#"
-    }
-)
-
-# Combine: Dynamic first, then static
-$allPapers = $dynamicPapers + $staticPapers
-
 # Convert to JSON
 $videoJson = $videos | ConvertTo-Json -Depth 2
 $paperJson = $allPapers | ConvertTo-Json -Depth 2
-
 
 # JavaScript Content
 $jsContent = @"

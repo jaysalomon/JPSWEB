@@ -8,37 +8,125 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <meta name="description"
-        content="Research papers and writings by JP Salomon on AI alignment, cognitive topology, complexity science, and systems thinking.">
+        content="Research papers by JP Salomon on AI alignment, cognitive topology, complexity science, and systems thinking.">
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* Research page specific styles */
-        .paper-card {
+        /* Staggered entrance animations */
+        .paper-entry {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(30px);
+            animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .paper-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .paper-entry:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .paper-entry:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .paper-entry:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .paper-entry:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .paper-entry:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .paper-entry:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .paper-entry:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .paper-entry:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        .paper-entry:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+
+        .paper-entry:nth-child(10) {
+            animation-delay: 1.0s;
+        }
+
+        /* Featured card styling */
+        .featured-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .featured-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Regular card hover */
+        .paper-card {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 3px solid transparent;
         }
 
         .paper-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+            border-left-color: #000;
+            background-color: #fafafa;
+            transform: translateX(4px);
         }
 
-        .filter-btn {
-            transition: all 0.2s ease;
+        /* Tag colors */
+        .tag-ai-safety {
+            background: #fef2f2;
+            color: #991b1b;
         }
 
-        .filter-btn.active {
-            background-color: #000;
-            color: #fff;
+        .tag-ai-alignment {
+            background: #fef3c7;
+            color: #92400e;
         }
 
-        .tag-pill {
-            transition: all 0.2s ease;
+        .tag-intelligence-theory {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .tag-complexity-science {
+            background: #f3e8ff;
+            color: #7c3aed;
+        }
+
+        .tag-cognitive-science {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .tag-hardware-architecture {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .tag-default {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        /* Reading time estimate */
+        .read-time {
+            font-variant-numeric: tabular-nums;
         }
     </style>
 </head>
@@ -50,40 +138,43 @@
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-[#fcfcfc]/90 backdrop-blur-sm border-b border-gray-200">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-sm font-medium hover:text-gray-600 flex items-center gap-2">
-                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-sm font-medium hover:text-gray-600 flex items-center gap-2 group">
+                <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Home
             </a>
-            <span class="text-xs uppercase tracking-widest text-gray-400">Research Archive</span>
+            <span class="serif text-lg">JP SALOMON</span>
+            <span class="text-xs uppercase tracking-widest text-gray-400">Research</span>
         </div>
     </nav>
 
     <main class="flex-grow relative z-10">
 
         <!-- Hero -->
-        <section class="max-w-5xl mx-auto px-6 py-16">
-            <h1 class="text-5xl md:text-6xl serif mb-6">Research & Writing</h1>
-            <p class="text-xl text-gray-600 max-w-2xl leading-relaxed">
-                Papers exploring substrate-independent cognition, structural dynamics, AI alignment,
-                and the mechanics underlying complex systems.
-            </p>
-        </section>
-
-        <!-- Filter Bar -->
-        <section class="max-w-5xl mx-auto px-6 pb-8">
-            <div class="flex flex-wrap gap-2" id="filter-bar">
-                <button class="filter-btn active px-4 py-2 text-sm border border-gray-300 rounded-full"
-                    data-filter="all">
-                    All Papers
-                </button>
-                <!-- Filters generated dynamically -->
+        <section class="max-w-6xl mx-auto px-6 pt-20 pb-16">
+            <div class="max-w-3xl">
+                <span class="text-xs uppercase tracking-widest text-gray-400 mb-4 block">Archive</span>
+                <h1 class="text-5xl md:text-7xl serif mb-8 leading-tight">Research<br /><em class="text-gray-400">&
+                        Writing</em></h1>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    Papers exploring the deep structures of intelligence, alignment, and complex systems.
+                    Each piece represents an attempt to map territory that resists easy categorisation.
+                </p>
             </div>
         </section>
 
-        <!-- Papers Grid -->
-        <section class="max-w-5xl mx-auto px-6 pb-24">
-            <div id="papers-grid" class="grid md:grid-cols-2 gap-8">
-                <!-- Cards generated by JS -->
+        <!-- Featured Paper -->
+        <section class="max-w-6xl mx-auto px-6 pb-16" id="featured-section">
+            <h2 class="text-xs uppercase tracking-widest text-gray-400 mb-6">Featured</h2>
+            <div id="featured-paper" class="featured-card rounded-2xl p-10 md:p-14 text-white paper-entry">
+                <!-- JS will populate -->
+            </div>
+        </section>
+
+        <!-- All Papers -->
+        <section class="max-w-6xl mx-auto px-6 pb-24">
+            <h2 class="text-xs uppercase tracking-widest text-gray-400 mb-8">All Papers</h2>
+            <div id="papers-list" class="space-y-1">
+                <!-- JS will populate -->
             </div>
         </section>
 
@@ -91,9 +182,11 @@
 
     <!-- Footer -->
     <footer class="bg-black text-gray-400 py-12 relative z-10">
-        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
             <span class="text-sm">© 2026 JP Salomon</span>
-            <a href="index.html" class="text-sm hover:text-white transition-colors">← Home</a>
+            <a href="index.html" class="text-sm hover:text-white transition-colors flex items-center gap-2">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+            </a>
         </div>
     </footer>
 
@@ -102,59 +195,64 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const papersData = window.siteManifest?.papers || [];
-            const gridEl = document.getElementById('papers-grid');
-            const filterBar = document.getElementById('filter-bar');
+            const featuredEl = document.getElementById('featured-paper');
+            const listEl = document.getElementById('papers-list');
 
-            // Extract unique tags
-            const tags = [...new Set(papersData.map(p => p.tag))];
+            // Tag class mapping
+            const getTagClass = (tag) => {
+                const t = tag.toLowerCase().replace(/\s+/g, '-');
+                if (t.includes('safety')) return 'tag-ai-safety';
+                if (t.includes('alignment')) return 'tag-ai-alignment';
+                if (t.includes('intelligence')) return 'tag-intelligence-theory';
+                if (t.includes('complexity')) return 'tag-complexity-science';
+                if (t.includes('cognitive')) return 'tag-cognitive-science';
+                if (t.includes('hardware')) return 'tag-hardware-architecture';
+                return 'tag-default';
+            };
 
-            // Generate filter buttons
-            tags.forEach(tag => {
-                const btn = document.createElement('button');
-                btn.className = 'filter-btn px-4 py-2 text-sm border border-gray-300 rounded-full';
-                btn.dataset.filter = tag;
-                btn.textContent = tag;
-                filterBar.appendChild(btn);
-            });
+            // Featured paper (first one or longest description)
+            const featured = papersData.reduce((a, b) =>
+                (b.desc?.length || 0) > (a.desc?.length || 0) ? b : a, papersData[0]);
 
-            // Render papers
-            function renderPapers(filter = 'all') {
-                const filtered = filter === 'all' ? papersData : papersData.filter(p => p.tag === filter);
-
-                gridEl.innerHTML = filtered.map((p, idx) => `
-                    <article class="paper-card bg-white border border-gray-100 rounded-lg p-8 flex flex-col" style="transition-delay: ${idx * 50}ms">
-                        <div class="flex items-start justify-between mb-4">
-                            <span class="tag-pill text-[10px] uppercase tracking-wider px-3 py-1 bg-gray-100 text-gray-600 rounded-full">${p.tag}</span>
-                            <span class="text-xs text-gray-400">${p.year}</span>
+            if (featured) {
+                featuredEl.innerHTML = `
+                    <div class="flex flex-col md:flex-row md:items-start gap-8">
+                        <div class="flex-grow">
+                            <span class="inline-block px-3 py-1 text-xs uppercase tracking-wider bg-white/10 text-white/80 rounded-full mb-6">${featured.tag}</span>
+                            <h3 class="text-3xl md:text-4xl font-semibold serif mb-4 leading-snug">${featured.title}</h3>
+                            <p class="text-white/70 text-lg leading-relaxed mb-8 max-w-2xl">${featured.desc}</p>
+                            <a href="${featured.link}" class="inline-flex items-center gap-3 px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-colors group" target="_blank">
+                                <i data-lucide="download" class="w-5 h-5"></i>
+                                Download PDF
+                                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
                         </div>
-                        <h3 class="text-xl font-semibold serif mb-3 leading-tight">${p.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed flex-grow mb-6">${p.desc}</p>
-                        <a href="${p.link}" class="inline-flex items-center text-sm font-medium text-black hover:opacity-70 group" ${p.link !== '#' ? 'target="_blank"' : ''}>
-                            ${p.link !== '#' ? 'Download PDF' : 'Coming Soon'}
-                            <i data-lucide="${p.link !== '#' ? 'download' : 'clock'}" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                    </article>
-                `).join('');
-
-                // Trigger animations
-                setTimeout(() => {
-                    document.querySelectorAll('.paper-card').forEach(card => card.classList.add('visible'));
-                }, 50);
-
-                if (window.lucide) lucide.createIcons();
+                        <div class="text-right text-white/40 text-sm">
+                            <div class="text-4xl font-bold text-white/20 serif">${featured.year}</div>
+                        </div>
+                    </div>
+                `;
             }
 
-            // Filter click handler
-            filterBar.addEventListener('click', (e) => {
-                if (e.target.classList.contains('filter-btn')) {
-                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    e.target.classList.add('active');
-                    renderPapers(e.target.dataset.filter);
-                }
-            });
+            // Remaining papers (exclude featured)
+            const remaining = papersData.filter(p => p.title !== featured?.title);
 
-            // Initial render
-            renderPapers();
+            listEl.innerHTML = remaining.map((p, idx) => `
+                <article class="paper-card paper-entry flex items-center justify-between gap-6 py-6 px-6 rounded-lg cursor-pointer" onclick="window.open('${p.link}', '_blank')">
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="inline-block px-2 py-0.5 text-[10px] uppercase tracking-wider rounded-full ${getTagClass(p.tag)}">${p.tag}</span>
+                            <span class="text-xs text-gray-400">${p.year}</span>
+                        </div>
+                        <h3 class="text-lg font-medium serif mb-1">${p.title}</h3>
+                        <p class="text-gray-500 text-sm line-clamp-2">${p.desc}</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300"></i>
+                    </div>
+                </article>
+            `).join('');
+
             if (window.lucide) lucide.createIcons();
         });
     </script>

@@ -110,27 +110,6 @@ window.siteManifest = {
         "link":  "assets/papers/The Unified Mind Space (UMS) Framework.pdf",
         "desc":  "A rigorous topological framework for mapping state-spaces of diverse cognitive systems.",
         "tag":  "Cognitive Science"
-    },
-    {
-        "year":  "2024",
-        "title":  "The Engineerâ€™s Paradox",
-        "link":  "#",
-        "desc":  "Explores why instrumenting every component of a system often fails to explain the emergent whole.",
-        "tag":  "System Dynamics"
-    },
-    {
-        "year":  "2023",
-        "title":  "Cognition as Topology",
-        "link":  "#",
-        "desc":  "A proposal for substrate-independent intelligence.",
-        "tag":  "Intelligence Theory"
-    },
-    {
-        "year":  "2023",
-        "title":  "Energy Thrift \u0026 Constraint-Led Design",
-        "link":  "#",
-        "desc":  "Why capability is downstream of constraints.",
-        "tag":  "Engineering"
     }
 ]
 };

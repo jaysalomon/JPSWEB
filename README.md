@@ -1,47 +1,22 @@
-# JP Salomon | Personal Website
+# jpsalomon.com
 
-Personal website and portfolio for JP Salomon — Independent Researcher & Technical Architect.
+Source code for my personal website.
 
-## 🌐 Live Site
+## Structure
 
-Visit: [jpsalomon.com](https://jpsalomon.com) *(or your GitHub Pages URL)*
+- `index.html` — Main site
+- `assets/` — Videos, papers, and images
+- `js/manifest.js` — Auto-generated content list
+- `update_site_manifest.ps1` — Regenerates manifest after adding content
 
-## 📁 Structure
-
-```
-├── index.html          # Main website
-├── css/styles.css      # Custom styling
-├── js/
-│   ├── main.js         # Core functionality
-│   └── manifest.js     # Auto-generated content manifest
-├── assets/
-│   ├── images/         # Book covers, photos
-│   ├── videos/         # Featured talks
-│   └── papers/         # Downloadable PDFs
-└── update_site_manifest.ps1  # Script to regenerate manifest
-```
-
-## 🛠 Development
-
-**Local preview:**
+## Local Development
 
 ```bash
 python -m http.server 8000
-# Open http://localhost:8000
 ```
 
-**After adding new videos or papers:**
+## License
 
-```powershell
-.\update_site_manifest.ps1
-```
+© JP Salomon. All rights reserved.
 
-## 📚 Featured Content
-
-- **Book:** *Decline: A Systems Study* — Available on Amazon
-- **Papers:** Research on AI alignment, cognitive topology, complexity science
-- **Videos:** Featured talks on intelligence, architecture, and systems
-
-## 📄 License
-
-Content © JP Salomon. All rights reserved.
+This repository contains the source code for my personal website. The content (articles, papers, videos, images) is my intellectual property and may not be reproduced without permission.

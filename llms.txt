@@ -1,0 +1,21 @@
+# JP Salomon - Research & Technical Architecture
+
+> Independent researcher focusing on Cognitive Topology, AI Alignment, and Complexity Science.
+
+## Core Pages
+
+- [Home / Bio](https://jpsalomon.github.io/)
+- [Research Constellation](https://jpsalomon.github.io/research.html): Interactive typology of all research papers.
+
+## Key Research Papers
+
+- [The Architecture of Mind](https://jpsalomon.github.io/assets/papers/architectureofmind.pdf): A unified framework establishing topological equivalence between biological neural networks and symbolic hypergraphs.
+- [The AV1 Retina](https://jpsalomon.github.io/assets/papers/AV1Retina_Master.pdf): Repurposing video codec hardware for low-power machine vision.
+- [Epistemic Homeostasis](https://jpsalomon.github.io/assets/papers/EpistemicHomeostasis.pdf): Systems-level framework for AI governance via Asymmetric Ising Dynamics.
+- [Emergent Vortex-Information Model (EVIM)](https://jpsalomon.github.io/assets/papers/evim_complete.pdf): Modeling intelligence as persistent patterns of information flow.
+- [Emergent Deception](https://jpsalomon.github.io/assets/papers/deception-compendium.pdf): Compendium on deception as a consequence of optimization in resource-constrained systems.
+
+## Contact
+
+- Email: JPSUK@proton.me
+- Substack: https://substack.com/@relationaldynamics

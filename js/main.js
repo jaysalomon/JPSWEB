@@ -166,11 +166,9 @@ function setupRotator() {
 
     if (!rotatorEl || !titleEl || !descEl) return;
 
+    // Use real data or a temporary loading state, never fake papers
     const rotatablePapers = papersData.length > 0 ? papersData.slice(0, 5) : [
-        { title: "The Engineer’s Paradox", desc: "Why instrumented systems fail to explain the emergent whole." },
-        { title: "Cognition as Topology", desc: "Substrate-independent intelligence and equivalent structures." },
-        { title: "Energy Thrift", desc: "Why capability is downstream of constraints in design space." },
-        { title: "Narrative Architecture", desc: "How stories compress reality to steer complex systems." }
+        { title: "Loading Research...", desc: "Initializing knowledge base." }
     ];
 
     let paperIndex = 0;

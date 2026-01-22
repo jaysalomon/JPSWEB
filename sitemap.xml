@@ -1,64 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Main Pages -->
     <url>
-        <loc>https://jpsalomon.com/</loc>
-        <lastmod>2026-01-21</lastmod>
-        <changefreq>weekly</changefreq>
+        <loc>https://jpsalomon.github.io/</loc>
+        <lastmod>2026-01-22</lastmod>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://jpsalomon.com/index.html</loc>
-        <lastmod>2026-01-21</lastmod>
-        <changefreq>weekly</changefreq>
+        <loc>https://jpsalomon.github.io/index.html</loc>
+        <lastmod>2026-01-22</lastmod>
         <priority>1.0</priority>
     </url>
-    <!-- Research Papers -->
     <url>
-        <loc>https://jpsalomon.com/assets/papers/architectureofmind.pdf</loc>
-        <lastmod>2025-01-01</lastmod>
-        <changefreq>monthly</changefreq>
+        <loc>https://jpsalomon.github.io/research.html</loc>
+        <lastmod>2026-01-22</lastmod>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Interactive Paper Mini-Sites -->
+    <url>
+        <loc>https://jpsalomon.github.io/UMS.html</loc>
+        <lastmod>2026-01-22</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://jpsalomon.com/assets/papers/AV1Retina_Master.pdf</loc>
-        <lastmod>2025-01-01</lastmod>
-        <changefreq>monthly</changefreq>
+        <loc>https://jpsalomon.github.io/the_av1_retina.html</loc>
+        <lastmod>2026-01-22</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://jpsalomon.com/assets/papers/biologicalethics.pdf</loc>
-        <lastmod>2025-01-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://jpsalomon.github.io/the_architecture_of_mind.html</loc>
+        <lastmod>2026-01-22</lastmod>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://jpsalomon.com/assets/papers/deception-compendium.pdf</loc>
-        <lastmod>2025-01-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://jpsalomon.github.io/biological_architecture_for_ethical_ai.html</loc>
+        <lastmod>2026-01-22</lastmod>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://jpsalomon.com/assets/papers/edgeofchaos.pdf</loc>
-        <lastmod>2025-01-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://jpsalomon.github.io/emergent_deception_in_ai.html</loc>
+        <lastmod>2026-01-22</lastmod>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://jpsalomon.com/assets/papers/EpistemicHomeostasis.pdf</loc>
-        <lastmod>2025-01-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://jpsalomon.github.io/the_boundary_of_brilliance.html</loc>
+        <lastmod>2026-01-22</lastmod>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://jpsalomon.com/assets/papers/evim_complete.pdf</loc>
-        <lastmod>2025-01-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://jpsalomon.github.io/epistemic_homeostasis.html</loc>
+        <lastmod>2026-01-22</lastmod>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://jpsalomon.com/assets/papers/growth-based-agi-whitepaper.pdf</loc>
-        <lastmod>2025-01-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://jpsalomon.github.io/epistemic_homeostasis_orchestrator.html</loc>
+        <lastmod>2026-01-22</lastmod>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://jpsalomon.github.io/the_emergent_vortex_information_model.html</loc>
+        <lastmod>2026-01-22</lastmod>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://jpsalomon.github.io/growth_based_agi.html</loc>
+        <lastmod>2026-01-22</lastmod>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Core Papers (PDFs) -->
+    <url>
+        <loc>https://jpsalomon.github.io/assets/papers/architectureofmind.pdf</loc>
+        <lastmod>2026-01-22</lastmod>
+    </url>
+    <url>
+        <loc>https://jpsalomon.github.io/assets/papers/AV1Retina_Master.pdf</loc>
+        <lastmod>2026-01-22</lastmod>
+    </url>
+    <url>
+        <loc>https://jpsalomon.github.io/assets/papers/evim_complete.pdf</loc>
+        <lastmod>2026-01-22</lastmod>
+    </url>
+    <url>
+        <loc>https://jpsalomon.github.io/assets/papers/EpistemicHomeostasis.pdf</loc>
+        <lastmod>2026-01-22</lastmod>
     </url>
 </urlset>

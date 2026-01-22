@@ -1,9 +1,20 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://jpsalomon.com/sitemap.xml
+# Specifically allow AI bots for citation
+User-agent: GPTBot
+Allow: /
 
-# Disallow admin/dev files
-Disallow: /update_site_manifest.ps1
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://jpsalomon.github.io/sitemap.xml

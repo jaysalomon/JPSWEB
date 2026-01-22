@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epistemic Homeostasis: Orchestrator | JP Salomon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+
+        .tech-bg {
+            background-color: #0f172a;
+            background-image: 
+                linear-gradient(#1e293b 1px, transparent 1px),
+                linear-gradient(90deg, #1e293b 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 tech-bg pb-20">
+
+    <nav class="absolute top-6 left-6 z-50">
+        <a href="research.html" class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Research
+        </a>
+    </nav>
+
+    <header class="relative pt-24 pb-32 px-6 text-center">
+        <div class="inline-block mb-6 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-sm font-medium tracking-wider uppercase">
+            Technical Report • 2025
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
+            Epistemic Homeostasis: Orchestrator
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+            Technical implementation guide and experimental validation for the belief governance framework.
+        </p>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 -mt-10 relative z-20 space-y-24">
+        <section class="bg-slate-900/90 backdrop-blur border border-slate-700 p-8 md:p-12 rounded-lg shadow-2xl">
+            <h2 class="text-3xl font-serif text-white mb-6">Abstract</h2>
+            <p class="text-slate-300 leading-loose text-lg">
+                Technical implementation guide and experimental validation for the belief governance framework. This work investigates the core dynamics of Technical Report, aiming to resolve persistent inconsistencies in current computational models. By applying a rigorous topological lens, we demonstrate that system behavior is not random but governed by predictable invariants.
+            </p>
+            <div class="mt-8 pt-8 border-t border-slate-800 flex gap-4">
+                 <a href="assets/papers/EpistemicHomeostasis_Orchestrator.pdf" target="_blank" class="px-6 py-3 bg-white text-slate-900 font-bold rounded hover:bg-slate-200 transition-colors flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-4 h-4"></i> Read Full Paper
+                 </a>
+            </div>
+        </section>
+
+        <section class="grid md:grid-cols-3 gap-6">
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded">
+                <i data-lucide="layers" class="text-indigo-400 w-8 h-8 mb-4"></i>
+                <h3 class="text-xl text-white mb-2">Structure</h3>
+                <p class="text-slate-400 text-sm">Defining the manifold geometry underlying the observed phenomena.</p>
+            </div>
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded">
+                <i data-lucide="git-branch" class="text-purple-400 w-8 h-8 mb-4"></i>
+                <h3 class="text-xl text-white mb-2">Dynamics</h3>
+                <p class="text-slate-400 text-sm">Scale-free information propagation and emergent attractor states.</p>
+            </div>
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded">
+                <i data-lucide="cpu" class="text-teal-400 w-8 h-8 mb-4"></i>
+                <h3 class="text-xl text-white mb-2">Synthesis</h3>
+                <p class="text-slate-400 text-sm">Integrating biological constraints with silicon scalability.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

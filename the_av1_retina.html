@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AV1 Retina | JP Salomon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Circuit Board Aesthetic */
+        .circuit-bg {
+            background-color: #0a0f1a;
+            background-image:
+                linear-gradient(#1a2332 1px, transparent 1px),
+                linear-gradient(90deg, #1a2332 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .glow-green {
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .phase-content {
+            display: none;
+        }
+
+        .phase-content.active {
+            display: block;
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-slate-100 circuit-bg pb-20">
+
+    <nav class="absolute top-6 left-6 z-50">
+        <a href="research.html"
+            class="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors text-sm font-medium">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Research
+        </a>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative pt-24 pb-20 px-6 text-center overflow-hidden">
+        <!-- Decorative Circuit Lines -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <pattern id="circuit" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <path d="M0 50 H40 M60 50 H100 M50 0 V40 M50 60 V100" stroke="#06b6d4" stroke-width="0.5"
+                        fill="none" />
+                    <circle cx="50" cy="50" r="3" fill="#06b6d4" />
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#circuit)" />
+            </svg>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <div
+                class="inline-block mb-6 px-4 py-1.5 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold tracking-widest uppercase">
+                Hardware Architecture • 2025
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                The AV1 Retina
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-400 font-light max-w-3xl mx-auto leading-relaxed">
+                Repurposing <span class="text-cyan-300 font-medium">commodity video codec hardware</span> as
+                ultra-low-power sensory preprocessors for machine vision.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-20">
+
+        <!-- The Problem -->
+        <section class="grid md:grid-cols-2 gap-8">
+            <div class="bg-slate-900/80 border border-red-500/20 p-8 rounded-lg hover:border-red-500/40 transition-all">
+                <div class="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-6">
+                    <i data-lucide="cpu" class="text-red-400 w-6 h-6"></i>
+                </div>
+                <h2 class="text-2xl text-red-100 mb-4">The Raw Data Bottleneck</h2>
+                <p class="text-slate-400 leading-relaxed mb-6">
+                    Modern vision systems process video <strong>frame-by-frame, pixel-by-pixel</strong>. Every frame,
+                    billions of floating-point operations recalculate spatial and temporal relationships from scratch.
+                </p>
+                <div class="p-4 bg-red-900/20 border-l-2 border-red-500 mono text-xs text-red-200">
+                    4K @ 60fps = 500M pixels/sec<br>
+                    Each pixel processed 100+ times → <span class="text-red-400">50 GFLOP/s wasted</span>
+                </div>
+            </div>
+
+            <div
+                class="bg-slate-900/80 border border-cyan-500/20 p-8 rounded-lg hover:border-cyan-500/40 transition-all glow-cyan">
+                <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-6">
+                    <i data-lucide="eye" class="text-cyan-400 w-6 h-6"></i>
+                </div>
+                <h2 class="text-2xl text-cyan-100 mb-4">The Codec Already Does This</h2>
+                <p class="text-slate-400 leading-relaxed mb-6">
+                    AV1 video encoders <em>already extract</em> the features vision networks need: <strong>motion
+                        vectors, edge maps, temporal deltas</strong>. This silicon exists in every modern SoC—and it's
+                    sitting idle.
+                </p>
+                <div class="p-4 bg-cyan-900/20 border-l-2 border-cyan-500 mono text-xs text-cyan-200">
+                    Motion Estimation → Object Tracking<br>
+                    CDEF Edges → Boundary Detection<br>
+                    Temporal Prediction → <span class="text-cyan-400">Change Awareness</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Insight -->
+        <section
+            class="bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-900 border border-slate-700 rounded-2xl p-10 md:p-14 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="relative z-10">
+                <h3 class="mono text-cyan-500 text-sm uppercase tracking-widest mb-4">Core Insight</h3>
+                <blockquote class="text-3xl md:text-4xl font-serif text-white leading-snug mb-8">
+                    "The retina doesn't send pixels to the brain. It sends <em class="text-cyan-300">features</em>. AV1
+                    can do the same for silicon."
+                </blockquote>
+                <p class="text-slate-400 max-w-2xl">
+                    The biological retina preprocesses light before it ever reaches the visual cortex—extracting edges,
+                    motion, and contrast locally. AV1 hardware performs structurally identical operations during video
+                    encoding. We propose hijacking this pipeline.
+                </p>
+            </div>
+        </section>
+
+        <!-- Three Key Operations -->
+        <section>
+            <div class="text-center mb-12">
+                <h3 class="mono text-emerald-500 text-sm uppercase tracking-widest mb-2">Feature Extraction Pipeline
+                </h3>
+                <p class="text-slate-500 text-lg">What AV1 computes that vision networks pay dearly for:</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div
+                    class="p-6 bg-slate-900/60 border border-slate-800 rounded-xl hover:border-emerald-500/30 transition-all group">
+                    <div
+                        class="w-10 h-10 bg-emerald-500/10 rounded flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="move" class="text-emerald-400 w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg text-white mb-2 font-semibold">Motion Vectors</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Block-level displacement fields tracking how content moves between frames. Directly usable for
+                        object tracking and optical flow.
+                    </p>
+                </div>
+
+                <div
+                    class="p-6 bg-slate-900/60 border border-slate-800 rounded-xl hover:border-emerald-500/30 transition-all group">
+                    <div
+                        class="w-10 h-10 bg-emerald-500/10 rounded flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="scan" class="text-emerald-400 w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg text-white mb-2 font-semibold">CDEF Edge Maps</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Constrained Directional Enhancement Filter detects and enhances perceptually important edges—the
+                        very boundaries vision networks learn to find.
+                    </p>
+                </div>
+
+                <div
+                    class="p-6 bg-slate-900/60 border border-slate-800 rounded-xl hover:border-emerald-500/30 transition-all group">
+                    <div
+                        class="w-10 h-10 bg-emerald-500/10 rounded flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="clock" class="text-emerald-400 w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg text-white mb-2 font-semibold">Temporal Residuals</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Difference signals between predicted and actual frames. Highlights <em>change</em>—exactly what
+                        anomaly detection and attention systems need.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Comparison -->
+        <section class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+            <div class="flex border-b border-slate-800">
+                <button onclick="setMode('raw')" id="btn-raw"
+                    class="flex-1 p-5 text-slate-500 hover:text-white transition-colors flex items-center justify-center gap-3">
+                    <i data-lucide="image" class="w-5 h-5"></i>
+                    <span class="font-bold tracking-wider text-sm uppercase">Raw Pipeline</span>
+                </button>
+                <button onclick="setMode('av1')" id="btn-av1"
+                    class="flex-1 p-5 bg-cyan-500/10 text-cyan-400 flex items-center justify-center gap-3 border-b-2 border-cyan-500">
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                    <span class="font-bold tracking-wider text-sm uppercase">AV1 Retina</span>
+                </button>
+            </div>
+
+            <div class="p-10 md:p-14 min-h-[350px]">
+                <!-- Raw Mode -->
+                <div id="view-raw" class="phase-content text-center">
+                    <div class="flex justify-center items-center gap-4 mb-8 flex-wrap">
+                        <div class="p-4 bg-slate-800 border border-slate-700 rounded text-slate-400 mono text-xs">Camera
+                        </div>
+                        <i data-lucide="arrow-right" class="text-slate-600 w-5 h-5"></i>
+                        <div class="p-4 bg-slate-800 border border-slate-700 rounded text-slate-400 mono text-xs">Raw
+                            Pixels</div>
+                        <i data-lucide="arrow-right" class="text-slate-600 w-5 h-5"></i>
+                        <div class="p-4 bg-red-900/30 border border-red-500/30 rounded text-red-300 mono text-xs">CNN
+                            Feature Extraction<br><span class="text-red-500">50 GFLOP/s</span></div>
+                        <i data-lucide="arrow-right" class="text-slate-600 w-5 h-5"></i>
+                        <div class="p-4 bg-slate-800 border border-slate-700 rounded text-slate-400 mono text-xs">
+                            Decision</div>
+                    </div>
+                    <p class="text-slate-500 max-w-lg mx-auto">
+                        The neural network must learn to extract edges, motion, and change from raw pixels—operations
+                        that consume the bulk of compute.
+                    </p>
+                </div>
+
+                <!-- AV1 Mode -->
+                <div id="view-av1" class="phase-content active text-center">
+                    <div class="flex justify-center items-center gap-4 mb-8 flex-wrap">
+                        <div class="p-4 bg-slate-800 border border-slate-700 rounded text-slate-400 mono text-xs">Camera
+                        </div>
+                        <i data-lucide="arrow-right" class="text-slate-600 w-5 h-5"></i>
+                        <div
+                            class="p-4 bg-cyan-900/30 border border-cyan-500/30 rounded text-cyan-300 mono text-xs glow-cyan">
+                            AV1 Encoder<br><span class="text-cyan-500">~5W ASIC</span></div>
+                        <i data-lucide="arrow-right" class="text-slate-600 w-5 h-5"></i>
+                        <div
+                            class="p-4 bg-emerald-900/30 border border-emerald-500/30 rounded text-emerald-300 mono text-xs">
+                            Motion + Edges + Δ</div>
+                        <i data-lucide="arrow-right" class="text-slate-600 w-5 h-5"></i>
+                        <div class="p-4 bg-slate-800 border border-slate-700 rounded text-slate-400 mono text-xs">
+                            Lightweight Classifier</div>
+                    </div>
+                    <p class="text-slate-500 max-w-lg mx-auto">
+                        The AV1 ASIC extracts features in hardware for <strong class="text-cyan-400">free</strong>. The
+                        downstream network receives structured data, not noise.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center pt-16 border-t border-slate-900 text-slate-600 text-sm">
+            <a href="assets/papers/AV1Retina_Master.pdf" target="_blank"
+                class="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded hover:bg-slate-200 transition-colors mb-8">
+                <i data-lucide="file-text" class="w-4 h-4"></i> Read Full Paper (PDF)
+            </a>
+            <p class="mono mt-6">JP SALOMON / 2025</p>
+        </footer>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        function setMode(mode) {
+            const btnRaw = document.getElementById('btn-raw');
+            const btnAv1 = document.getElementById('btn-av1');
+            const viewRaw = document.getElementById('view-raw');
+            const viewAv1 = document.getElementById('view-av1');
+
+            if (mode === 'raw') {
+                btnRaw.className = "flex-1 p-5 bg-slate-800 text-white flex items-center justify-center gap-3 border-b-2 border-white";
+                btnAv1.className = "flex-1 p-5 text-slate-500 hover:text-white transition-colors flex items-center justify-center gap-3";
+                viewRaw.classList.add('active');
+                viewAv1.classList.remove('active');
+            } else {
+                btnAv1.className = "flex-1 p-5 bg-cyan-500/10 text-cyan-400 flex items-center justify-center gap-3 border-b-2 border-cyan-500";
+                btnRaw.className = "flex-1 p-5 text-slate-500 hover:text-white transition-colors flex items-center justify-center gap-3";
+                viewAv1.classList.add('active');
+                viewRaw.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+
+</html>

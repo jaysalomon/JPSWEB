@@ -444,6 +444,8 @@
 
         const Navbar = ({ onOpenDeck }) => {
             const [scrolled, setScrolled] = useState(false);
+            const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
             useEffect(() => {
                 const handleScroll = () => setScrolled(window.scrollY > 50);
                 window.addEventListener('scroll', handleScroll);
@@ -454,21 +456,51 @@
                 <nav className={`fixed w-full z-40 transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-md border-b border-[#b38728]/30' : 'bg-transparent'}`}>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex justify-between items-center h-20">
-                            <div className="flex items-center space-x-2">
+                            <div className="flex items-center space-x-2 z-50">
                                 <div className="w-8 h-8 bg-gradient-to-b from-[#fcf6ba] to-[#aa771c] clip-triangle"></div>
                                 <span className="text-2xl font-bold brand-font text-white tracking-widest">PONZ.AI</span>
                             </div>
+
+                            {/* Desktop Menu */}
                             <div className="hidden md:flex space-x-8 text-sm uppercase tracking-widest text-gray-400">
                                 <a href="index.html" className="text-gray-600 hover:text-white transition-colors flex items-center gap-1 border-r border-gray-800 pr-8"><ChevronLeft size={14} /> Main Site</a>
                                 <a href="#topology" className="hover:text-[#fcf6ba] transition-colors">Topology</a>
                                 <a href="#tokenomics" className="hover:text-[#fcf6ba] transition-colors">Gradient</a>
                                 <button onClick={onOpenDeck} className="hover:text-[#fcf6ba] transition-colors text-left uppercase">Investor Deck</button>
                             </div>
-                            <button className="bg-gradient-to-r from-[#b38728] to-[#fcf6ba] text-black font-bold px-6 py-2 rounded-sm hover:scale-105 transition-transform duration-200" onClick={() => alert("Network Congestion: High volume of inbound capital detected.")}>
+
+                            {/* Mobile Menu Button */}
+                            <div className="md:hidden z-50 flex items-center gap-4">
+                                <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-white p-2">
+                                    {mobileMenuOpen ? <XIcon size={24} /> : <div className="space-y-1.5">
+                                        <div className="w-6 h-0.5 bg-white"></div>
+                                        <div className="w-6 h-0.5 bg-white"></div>
+                                        <div className="w-6 h-0.5 bg-white"></div>
+                                    </div>}
+                                </button>
+                            </div>
+
+                            {/* Desktop Connect Wallet */}
+                            <button className="hidden md:block bg-gradient-to-r from-[#b38728] to-[#fcf6ba] text-black font-bold px-6 py-2 rounded-sm hover:scale-105 transition-transform duration-200" onClick={() => alert("Network Congestion: High volume of inbound capital detected.")}>
                                 Connect Wallet
                             </button>
                         </div>
                     </div>
+
+                    {/* Mobile Menu Overlay */}
+                    {mobileMenuOpen && (
+                        <div className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center space-y-8 animate-fade-in md:hidden">
+                            <a href="index.html" className="text-xl text-gray-400 uppercase tracking-widest flex items-center gap-2 border-b border-gray-800 pb-2"><ChevronLeft size={20} /> Back to Main Site</a>
+                            <a href="#topology" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white brand-font hover:text-[#b38728]">Topology</a>
+                            <a href="#tokenomics" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white brand-font hover:text-[#b38728]">Gradient</a>
+                            <button onClick={() => { setMobileMenuOpen(false); onOpenDeck(); }} className="text-2xl font-bold text-white brand-font hover:text-[#b38728]">Investor Deck</button>
+                            <div className="pt-8">
+                                <button className="bg-gradient-to-r from-[#b38728] to-[#fcf6ba] text-black font-bold px-8 py-3 rounded-sm" onClick={() => alert("Network Congestion: High volume of inbound capital detected.")}>
+                                    Connect Wallet
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </nav>
             );
         };

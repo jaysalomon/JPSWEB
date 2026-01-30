@@ -76,17 +76,19 @@
 
         <!-- Navigation -->
         <nav class="sticky top-0 z-50 bg-[#fcfcfc]/90 backdrop-blur-sm border-b border-gray-200">
-            <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
                 <a href="#" onclick="window.scrollTo({top:0, behavior:'auto'})"
                     class="text-xl font-bold tracking-tight serif">JP SALOMON</a>
 
-                <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest text-gray-500 font-medium">
-                    <a href="#about" class="hover:text-black transition-colors">About</a>
-                    <a href="research.html" class="hover:text-black transition-colors">Research</a>
-                    <a href="#book" class="hover:text-black transition-colors">Decline</a>
-                    <a href="#media" class="hover:text-black transition-colors">Media</a>
-                    <a href="#contact" class="hover:text-black transition-colors">Connect</a>
-                    <a href="ponz.html" class="hover:text-black transition-colors">Ponz.ai</a>
+                <div
+                    class="hidden md:flex gap-8 text-sm uppercase tracking-widest text-gray-500 font-medium items-center">
+                    <a href="#about" class="hover:text-black transition-colors" data-i18n="nav_about">About</a>
+                    <a href="research.html" class="hover:text-black transition-colors"
+                        data-i18n="nav_research">Research</a>
+                    <a href="#book" class="hover:text-black transition-colors" data-i18n="nav_decline">Decline</a>
+                    <a href="#media" class="hover:text-black transition-colors" data-i18n="nav_media">Media</a>
+                    <a href="#contact" class="hover:text-black transition-colors" data-i18n="nav_contact">Connect</a>
+                    <a href="ponz.html" class="hover:text-black transition-colors" data-i18n="nav_ponz">Ponz.ai</a>
                 </div>
 
                 <button id="mobile-menu-btn" class="md:hidden text-gray-600" aria-label="Open menu"
@@ -99,34 +101,35 @@
                 class="hidden md:hidden border-t border-gray-200 bg-white absolute w-full h-screen z-50">
                 <div
                     class="px-6 py-6 flex flex-col gap-6 text-sm uppercase tracking-widest text-gray-500 font-medium bg-white">
-                    <a href="#about" class="hover:text-black mobile-link">About</a>
-                    <a href="research.html" class="hover:text-black mobile-link">Research</a>
-                    <a href="#book" class="hover:text-black mobile-link">Decline</a>
-                    <a href="#media" class="hover:text-black mobile-link">Media</a>
-                    <a href="#contact" class="hover:text-black mobile-link">Connect</a>
-                    <a href="ponz.html" class="hover:text-black mobile-link">Ponz.ai</a>
+                    <a href="#about" class="hover:text-black mobile-link" data-i18n="nav_about">About</a>
+                    <a href="research.html" class="hover:text-black mobile-link" data-i18n="nav_research">Research</a>
+                    <a href="#book" class="hover:text-black mobile-link" data-i18n="nav_decline">Decline</a>
+                    <a href="#media" class="hover:text-black mobile-link" data-i18n="nav_media">Media</a>
+                    <a href="#contact" class="hover:text-black mobile-link" data-i18n="nav_contact">Connect</a>
+                    <a href="ponz.html" class="hover:text-black mobile-link" data-i18n="nav_ponz">Ponz.ai</a>
                 </div>
             </div>
         </nav>
 
         <main>
             <!-- Hero -->
-            <header class="max-w-4xl mx-auto px-6 pt-24 pb-12 md:pt-32 md:pb-12">
+            <header class="max-w-6xl mx-auto px-6 pt-24 pb-12 md:pt-32 md:pb-12">
                 <div>
                     <p class="text-sm uppercase tracking-[0.2em] text-gray-500 mb-4">Julien Pierre Salomon</p>
-                    <h1 class="text-5xl md:text-7xl font-medium leading-tight mb-8">
+                    <h1 class="text-5xl md:text-7xl font-medium leading-tight mb-8" data-i18n="hero_title">
                         Independent Researcher.<br>
                         Technical Architect.<br>
                         <span class="text-gray-400 italic">Structuralist.</span>
                     </h1>
-                    <p class="text-xl md:text-2xl text-gray-600 max-w-2xl font-light leading-relaxed">
+                    <p class="text-xl md:text-2xl text-gray-600 max-w-2xl font-light leading-relaxed"
+                        data-i18n="hero_desc">
                         Approaching intelligence, civilisation, and complex systems as questions of structure.
                     </p>
                 </div>
             </header>
 
             <!-- Featured Banner -->
-            <section class="max-w-4xl mx-auto px-6 pb-12 delay-100">
+            <section class="max-w-6xl mx-auto px-6 pb-12 delay-100">
                 <div class="grid md:grid-cols-2 gap-6">
 
                     <!-- Book Card Highlight -->
@@ -140,14 +143,15 @@
                         </div>
 
                         <div class="z-10 bg-transparent">
-                            <span class="text-xs font-bold uppercase tracking-widest text-red-700 mb-3 block">Latest
+                            <span class="text-xs font-bold uppercase tracking-widest text-red-700 mb-3 block"
+                                data-i18n="latest_pub">Latest
                                 Publication</span>
                             <h3 class="serif text-3xl mb-2 italic">Decline</h3>
                             <p class="text-sm text-gray-500 mb-6 max-w-xs">A systems-level study of modern collapse
                                 dynamics.</p>
                         </div>
                         <div class="flex items-center text-xs font-bold uppercase tracking-wider mt-4 z-10">
-                            View Book <i data-lucide="arrow-down"
+                            <span data-i18n="view_book">View Book</span> <i data-lucide="arrow-down"
                                 class="w-4 h-4 ml-2 group-hover:translate-y-1 transition-transform"></i>
                         </div>
                     </a>
@@ -159,7 +163,8 @@
                             <i data-lucide="layers" class="w-32 h-32"></i>
                         </div>
 
-                        <span class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3 block z-10">Key
+                        <span class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3 block z-10"
+                            data-i18n="key_research">Key
                             Research</span>
 
                         <div class="z-10 min-h-[160px] flex flex-col justify-start">
@@ -171,7 +176,7 @@
                         </div>
 
                         <div class="flex items-center text-xs font-bold uppercase tracking-wider mt-4 z-10">
-                            Explore Papers <i data-lucide="arrow-down"
+                            <span data-i18n="explore_papers">Explore Papers</span> <i data-lucide="arrow-down"
                                 class="w-4 h-4 ml-2 group-hover:translate-y-1 transition-transform"></i>
                         </div>
                     </a>
@@ -182,14 +187,15 @@
             <div class="w-full border-t border-gray-200 my-8"></div>
 
             <!-- Bio -->
-            <section id="about" class="max-w-4xl mx-auto px-6 py-16 delay-200">
+            <section id="about" class="max-w-6xl mx-auto px-6 py-16 delay-200">
                 <div class="grid md:grid-cols-12 gap-12">
                     <div class="md:col-span-3">
-                        <h2 class="text-sm font-bold uppercase tracking-widest text-gray-400 sticky top-24">The Approach
+                        <h2 class="text-sm font-bold uppercase tracking-widest text-gray-400 sticky top-24"
+                            data-i18n="about_title">The Approach
                         </h2>
                     </div>
                     <div class="md:col-span-9 prose prose-lg prose-gray text-gray-800 leading-loose">
-                        <p class="mb-6">
+                        <p class="mb-6" data-i18n="bio_p1">
                             <strong class="font-semibold text-black">JP Salomon</strong> is an independent researcher
                             and technical architect who approaches intelligence, civilisation, and complex systems as
                             questions of <strong>structure</strong>: what persists when you strip away labels and look
@@ -199,14 +205,14 @@
                             understanding is not “the part”, but the <strong>pattern of interaction</strong> that makes
                             the parts become something new.
                         </p>
-                        <p class="mb-6">
+                        <p class="mb-6" data-i18n="bio_p2">
                             A physics-first obsession sits underneath both his research and his engineering: the belief
                             that capability is downstream of constraints, and that energy, bandwidth, and material
                             limits are not implementation details but the governing laws of the design space. That
                             emphasis on <strong>energy thrift</strong> and constraint-led thinking guides how he
                             evaluates claims, builds systems, and distinguishes real progress from expensive noise.
                         </p>
-                        <p class="mb-6">
+                        <p class="mb-6" data-i18n="bio_p3">
                             That lens runs through a corpus of papers proposing <strong>substrate-independent</strong>
                             ways to think about cognition: intelligence as relational dynamics; cognition as topology;
                             and the idea that very different systems can share the same underlying mechanism when their
@@ -214,12 +220,12 @@
                             clarity — frameworks that let you compare minds, models, organisms, and organisations using
                             common structural coordinates.
                         </p>
-                        <p class="mb-6">
+                        <p class="mb-6" data-i18n="bio_p4">
                             Alongside the research, he builds complete applications and integrated frameworks that turn
                             these ideas into tools, focusing on emergent behaviour in optimisation systems,
                             topological/relational cognition, and embodied, energy-aware computation.
                         </p>
-                        <p class="mb-6 text-sm text-gray-500 italic border-l-2 border-gray-300 pl-4">
+                        <p class="mb-6 text-sm text-gray-500 italic border-l-2 border-gray-300 pl-4" data-i18n="bio_p5">
                             Before moving into full-time research, he spent over a decade in high-end film and
                             television production as an Assistant Director and unit-level coordinator. That background
                             sharpened a core insight that threads through all his work: large-scale coordination is
@@ -233,7 +239,7 @@
 
             <!-- Book Section -->
             <section id="book" class="bg-gray-900 text-white py-24 my-12">
-                <div class="max-w-4xl mx-auto px-6">
+                <div class="max-w-6xl mx-auto px-6">
                     <div class="grid md:grid-cols-12 gap-12 items-center">
                         <div class="md:col-span-4 flex justify-center md:justify-end">
                             <div class="w-64 h-auto shadow-2xl relative group">
@@ -243,21 +249,24 @@
                         </div>
 
                         <div class="md:col-span-8">
-                            <span class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 block">Latest
+                            <span class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 block"
+                                data-i18n="latest_pub">Latest
                                 Publication</span>
                             <h2 class="text-4xl serif mb-6">Decline: A Systems Study</h2>
-                            <p class="text-gray-300 text-lg leading-relaxed mb-8 font-light">
+                            <p class="text-gray-300 text-lg leading-relaxed mb-8 font-light" data-i18n="book_desc_long">
                                 A systems-level study of modern collapse dynamics written as mechanics rather than moral
                                 theatre: incentives drifting out of alignment, institutions losing elasticity, and
                                 narrative drift outpacing reality.
                             </p>
                             <div class="flex gap-4">
                                 <a href="https://www.amazon.com/dp/B0GDJ3T5YX" target="_blank"
-                                    class="px-6 py-3 bg-white text-gray-900 font-medium text-sm uppercase tracking-wider hover:bg-gray-100 transition-colors">
+                                    class="px-6 py-3 bg-white text-gray-900 font-medium text-sm uppercase tracking-wider hover:bg-gray-100 transition-colors"
+                                    data-i18n="buy_amazon">
                                     Buy on Amazon
                                 </a>
                                 <button onclick="toggleView('chapter')"
-                                    class="px-6 py-3 border border-white/30 text-white font-medium text-sm uppercase tracking-wider hover:bg-white/10 transition-colors">
+                                    class="px-6 py-3 border border-white/30 text-white font-medium text-sm uppercase tracking-wider hover:bg-white/10 transition-colors"
+                                    data-i18n="read_chapter">
                                     Read Chapter 1
                                 </button>
                             </div>
@@ -267,12 +276,13 @@
             </section>
 
             <!-- NEW: Media Section -->
-            <section id="media" class="max-w-4xl mx-auto px-6 py-16">
-                <h2 class="text-3xl serif mb-12 border-b border-gray-200 pb-4">Media</h2>
+            <section id="media" class="max-w-6xl mx-auto px-6 py-16">
+                <h2 class="text-3xl serif mb-12 border-b border-gray-200 pb-4" data-i18n="media_title">Media</h2>
 
                 <!-- Video Sub-Section (Carousel) -->
                 <div class="mb-16">
-                    <h3 class="text-lg font-bold uppercase tracking-widest text-gray-400 mb-6">Featured Talks</h3>
+                    <h3 class="text-lg font-bold uppercase tracking-widest text-gray-400 mb-6"
+                        data-i18n="featured_talks">Featured Talks</h3>
 
                     <div class="grid md:grid-cols-12 gap-8">
                         <!-- Main Player (Left, Larger) -->
@@ -291,8 +301,8 @@
 
                         <!-- Playlist / Controls (Right, List) -->
                         <div class="md:col-span-4 flex flex-col justify-start">
-                            <div
-                                class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 border-b border-gray-200 pb-2">
+                            <div class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 border-b border-gray-200 pb-2"
+                                data-i18n="up_next">
                                 Up Next</div>
                             <div id="video-thumbs-list" class="flex flex-col gap-2">
                                 <!-- Thumbnails injected by JS -->
@@ -307,34 +317,38 @@
             </section>
 
             <!-- Research -->
-            <section id="research" class="max-w-4xl mx-auto px-6 py-16">
-                <h2 class="text-3xl serif mb-12 border-b border-gray-200 pb-4">Selected Research & Writing</h2>
+            <section id="research" class="max-w-6xl mx-auto px-6 py-16">
+                <h2 class="text-3xl serif mb-12 border-b border-gray-200 pb-4" data-i18n="research_title">Selected
+                    Research & Writing</h2>
 
                 <div id="papers-list" class="grid gap-12">
                     <!-- Javascript will populate this -->
                 </div>
 
                 <div class="mt-12 p-8 bg-gray-50 border border-gray-200 text-center">
-                    <h3 class="serif text-xl mb-2">The Substack</h3>
-                    <p class="text-gray-600 mb-6 text-sm">Weekly essays on structure, mechanics, and narrative
+                    <h3 class="serif text-xl mb-2" data-i18n="substack_title">The Substack</h3>
+                    <p class="text-gray-600 mb-6 text-sm" data-i18n="substack_desc">Weekly essays on structure,
+                        mechanics, and narrative
                         architecture.</p>
                     <div class="flex max-w-md mx-auto gap-2">
                         <input type="email" placeholder="Email address"
                             class="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:border-black text-sm bg-white">
                         <button
-                            class="px-6 py-2 bg-black text-white text-sm font-medium uppercase tracking-wider hover:bg-gray-800">Subscribe</button>
+                            class="px-6 py-2 bg-black text-white text-sm font-medium uppercase tracking-wider hover:bg-gray-800"
+                            data-i18n="subscribe">Subscribe</button>
                     </div>
-                    <p class="mt-4 text-xs text-gray-400">Join 5,000+ others. No noise.</p>
+                    <p class="mt-4 text-xs text-gray-400" data-i18n="join_msg">Join 5,000+ others. No noise.</p>
                 </div>
             </section>
 
             <!-- Contact -->
             <section id="contact" class="bg-black text-gray-400 py-16">
-                <div class="max-w-4xl mx-auto px-6">
+                <div class="max-w-6xl mx-auto px-6">
                     <div class="grid md:grid-cols-2 gap-12">
                         <div>
-                            <h2 class="text-white text-lg font-bold uppercase tracking-widest mb-6">Contact</h2>
-                            <p class="mb-8 font-light">
+                            <h2 class="text-white text-lg font-bold uppercase tracking-widest mb-6"
+                                data-i18n="contact_header">Contact</h2>
+                            <p class="mb-8 font-light" data-i18n="contact_desc">
                                 Open to collaborations on substrate-independent cognition, topological systems, and
                                 energy-aware computing architecture.
                             </p>
@@ -394,7 +408,7 @@
             </header>
             <div class="w-24 h-[1px] bg-gray-300 mx-auto mb-16"></div>
 
-            <article class="chapter-prose text-gray-800 text-lg">
+            <article class="chapter-prose text-gray-800 text-lg" data-i18n-html="chapter_content">
                 <p
                     class="first-letter:text-6xl first-letter:font-serif first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:mt-1">
                     Every civilisation tells itself that its end will be different.
@@ -683,6 +697,7 @@
     </div>
 
     <script src="js/manifest.js"></script>
+    <script src="js/localization.js"></script>
     <script src="js/main.js"></script>
 </body>
 

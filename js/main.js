@@ -88,22 +88,42 @@ function initVideoCarousel() {
 
 function renderPapers() {
     const papersListEl = document.getElementById('papers-list');
+    const currentLang = localStorage.getItem('jps_lang') || 'en';
+
+    // Safety check for translations existence
+    const paperTranslations = (window.translations && window.translations[currentLang] && window.translations[currentLang].papers)
+        ? window.translations[currentLang].papers
+        : {};
+
     if (papersListEl) {
-        papersListEl.innerHTML = papersData.map(p => `
+        papersListEl.innerHTML = papersData.map(p => {
+            // Get translated title/desc if available, fallback to manifest data
+            const translatedTitle = paperTranslations[p.id] ? paperTranslations[p.id].title : p.title;
+            const translatedDesc = paperTranslations[p.id] ? paperTranslations[p.id].desc : p.desc;
+
+            return `
             <article class="group cursor-pointer">
                 <div class="flex flex-col md:flex-row gap-4 md:items-baseline">
-                    <h3 class="text-xl font-semibold group-hover:underline decoration-1 underline-offset-4">${p.title}</h3>
+                    <h3 class="text-xl font-semibold group-hover:underline decoration-1 underline-offset-4">${translatedTitle}</h3>
                     <span class="text-xs text-gray-500 uppercase tracking-wider border border-gray-200 px-2 py-1 rounded">${p.tag}</span>
                     <span class="text-xs text-gray-400">${p.year}</span>
                 </div>
-                <p class="mt-3 text-gray-600 max-w-2xl">${p.desc}</p>
+                <p class="mt-3 text-gray-600 max-w-2xl">${translatedDesc}</p>
                 <a href="${p.link}" class="inline-flex items-center text-sm font-medium text-black mt-4 hover:opacity-70">
                     Read Paper <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
                 </a>
             </article>
-        `).join('');
+        `}).join('');
     }
 }
+
+// Re-render when language changes
+window.addEventListener('languageChanged', (e) => {
+    renderPapers();
+    // Update active video title/desc if needed? 
+    // Video text is dynamic but currently not in the translation map properly. 
+    // We can leave video as is for now or add it later.
+});
 
 function setupNavigation() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

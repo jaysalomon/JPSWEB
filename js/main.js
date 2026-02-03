@@ -224,20 +224,46 @@ function handleHashLoad() {
 
 window.toggleView = function (viewName) {
     const homeView = document.getElementById('view-home');
-    const chapterView = document.getElementById('view-chapter');
+    const declineView = document.getElementById('view-chapter-decline');
+    const exitView = document.getElementById('view-chapter-exit');
 
-    if (viewName === 'chapter') {
+    // 1. Hide all views first
+    if (homeView) {
         homeView.classList.add('hidden-view');
         homeView.classList.remove('flex');
-        chapterView.classList.remove('hidden-view');
-        chapterView.classList.add('flex');
-        document.body.classList.add('reading-mode');
-        window.scrollTo(0, 0);
-    } else {
-        chapterView.classList.add('hidden-view');
-        chapterView.classList.remove('flex');
-        homeView.classList.remove('hidden-view');
-        homeView.classList.add('flex');
+    }
+    if (declineView) {
+        declineView.classList.add('hidden-view');
+        declineView.classList.remove('flex');
+    }
+    if (exitView) {
+        exitView.classList.add('hidden-view');
+        exitView.classList.remove('flex');
+    }
+
+    // 2. Show target view
+    if (viewName === 'home') {
+        if (homeView) {
+            homeView.classList.remove('hidden-view');
+            homeView.classList.add('flex');
+        }
         document.body.classList.remove('reading-mode');
+        window.scrollTo(0, 0); // Optional: keep scroll position? No, home usually top.
+    }
+    else if (viewName === 'chapter-decline') {
+        if (declineView) {
+            declineView.classList.remove('hidden-view');
+            declineView.classList.add('flex');
+            document.body.classList.add('reading-mode');
+            window.scrollTo(0, 0);
+        }
+    }
+    else if (viewName === 'chapter-exit') {
+        if (exitView) {
+            exitView.classList.remove('hidden-view');
+            exitView.classList.add('flex');
+            document.body.classList.add('reading-mode');
+            window.scrollTo(0, 0);
+        }
     }
 };

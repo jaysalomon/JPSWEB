@@ -86,6 +86,7 @@
                     <a href="research.html" class="hover:text-black transition-colors"
                         data-i18n="nav_research">Research</a>
                     <a href="#book" class="hover:text-black transition-colors" data-i18n="nav_decline">Decline</a>
+                    <a href="#exit" class="hover:text-black transition-colors" data-i18n="nav_exit">Exit</a>
                     <a href="#media" class="hover:text-black transition-colors" data-i18n="nav_media">Media</a>
                     <a href="#contact" class="hover:text-black transition-colors" data-i18n="nav_contact">Connect</a>
                     <a href="ponz.html" class="hover:text-black transition-colors" data-i18n="nav_ponz">Ponz.ai</a>
@@ -104,6 +105,7 @@
                     <a href="#about" class="hover:text-black mobile-link" data-i18n="nav_about">About</a>
                     <a href="research.html" class="hover:text-black mobile-link" data-i18n="nav_research">Research</a>
                     <a href="#book" class="hover:text-black mobile-link" data-i18n="nav_decline">Decline</a>
+                    <a href="#exit" class="hover:text-black mobile-link" data-i18n="nav_exit">Exit</a>
                     <a href="#media" class="hover:text-black mobile-link" data-i18n="nav_media">Media</a>
                     <a href="#contact" class="hover:text-black mobile-link" data-i18n="nav_contact">Connect</a>
                     <a href="ponz.html" class="hover:text-black mobile-link" data-i18n="nav_ponz">Ponz.ai</a>
@@ -264,11 +266,45 @@
                                     data-i18n="buy_amazon">
                                     Buy on Amazon
                                 </a>
-                                <button onclick="toggleView('chapter')"
+                                <button onclick="toggleView('chapter-decline')"
                                     class="px-6 py-3 border border-white/30 text-white font-medium text-sm uppercase tracking-wider hover:bg-white/10 transition-colors"
                                     data-i18n="read_chapter">
                                     Read Chapter 1
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Book Section: Exit -->
+            <section id="exit" class="bg-gray-50 text-black py-24 my-12 border-t border-b border-gray-200">
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="grid md:grid-cols-12 gap-12 items-center">
+                        <div class="md:col-span-8 order-2 md:order-1">
+                            <span class="text-xs font-bold uppercase tracking-widest text-red-700 mb-2 block"
+                                data-i18n="latest_pub">Latest
+                                Publication</span>
+                            <h2 class="text-4xl serif mb-2">Exit</h2>
+                            <p class="text-xl serif italic text-gray-500 mb-6" data-i18n="exit_subtitle">When Exit
+                                Becomes Rational</p>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-8 font-light" data-i18n="exit_desc_long">
+                                A forensic examination of the elite exit strategy: from bunkers to biological hedging.
+                                An accounting of what is being decoupled, why it cannot work, and what the unraveling
+                                will cost.
+                            </p>
+                            <div class="flex gap-4">
+                                <button onclick="toggleView('chapter-exit')"
+                                    class="px-6 py-3 bg-black text-white font-medium text-sm uppercase tracking-wider hover:bg-gray-800 transition-colors"
+                                    data-i18n="read_exit_chapter">
+                                    Read Introduction
+                                </button>
+                            </div>
+                        </div>
+                        <div class="md:col-span-4 flex justify-center md:justify-end order-1 md:order-2">
+                            <div class="w-64 h-auto shadow-2xl relative group">
+                                <img src="assets/images/Exitcover.png" alt="Exit Book Cover"
+                                    class="w-full h-auto border border-gray-200">
                             </div>
                         </div>
                     </div>
@@ -386,9 +422,9 @@
     </div>
 
     <!-- =========================================
-         VIEW 2: CHAPTER 1 READING VIEW
+         VIEW 2: CHAPTER 1 READING VIEW (DECLINE)
          ========================================= -->
-    <div id="view-chapter" class="hidden-view flex flex-col relative z-10 w-full">
+    <div id="view-chapter-decline" class="hidden-view flex flex-col relative z-10 w-full bg-white">
 
         <nav class="sticky top-0 z-50 bg-[#fcfcfc]/90 backdrop-blur-sm border-b border-gray-200">
             <div class="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -408,7 +444,7 @@
             </header>
             <div class="w-24 h-[1px] bg-gray-300 mx-auto mb-16"></div>
 
-            <article class="chapter-prose text-gray-800 text-lg" data-i18n-html="chapter_content">
+            <article class="chapter-prose text-gray-800 text-lg" data-i18n-html="chapter_decline_content">
                 <p
                     class="first-letter:text-6xl first-letter:font-serif first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:mt-1">
                     Every civilisation tells itself that its end will be different.
@@ -699,6 +735,36 @@
     <script src="js/manifest.js"></script>
     <script src="js/localization.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- =========================================
+         VIEW 3: CHAPTER READING VIEW (EXIT)
+         ========================================= -->
+    <div id="view-chapter-exit" class="hidden-view flex flex-col relative z-10 w-full bg-white">
+
+        <nav class="sticky top-0 z-50 bg-[#fcfcfc]/90 backdrop-blur-sm border-b border-gray-200">
+            <div class="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
+                <button onclick="toggleView('home')"
+                    class="text-sm font-medium hover:text-gray-600 flex items-center gap-2">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+                </button>
+                <span class="text-xs uppercase tracking-widest text-gray-400">Exit / JP Salomon</span>
+            </div>
+        </nav>
+
+        <main class="flex-grow z-10 max-w-3xl mx-auto px-6 py-16 md:py-24">
+            <header class="mb-16 text-center">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-red-800 block mb-4">Introduction</span>
+                <h1 class="text-5xl md:text-6xl font-medium mb-4" data-i18n="exit_title">Exit</h1>
+                <h2 class="text-xl md:text-2xl text-gray-500 italic font-light serif" data-i18n="exit_subtitle">When
+                    Exit Becomes Rational</h2>
+            </header>
+            <div class="w-24 h-[1px] bg-gray-300 mx-auto mb-16"></div>
+
+            <article class="chapter-prose text-gray-800 text-lg" data-i18n-html="chapter_exit_content">
+                <!-- Content injected by JS -->
+            </article>
+        </main>
+    </div>
 </body>
 
 </html>

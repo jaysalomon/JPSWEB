@@ -12,6 +12,16 @@ const translations = {
         nav_contact: "Connect",
         nav_ponz: "Ponz.ai",
 
+        // Research Page
+        nav_index: "Index",
+        nav_archives: "Archives",
+        collection_eyebrow: "The Collection",
+        collection_title: "Topology of Mind",
+        collection_desc: "Whitepapers and technical reports exploring the structural isomorphism between biological cognition and artificial intelligence.",
+        ui_read: "Read",
+        ui_download: "Download",
+        ui_interactive: "Interactive Framework",
+
         hero_title: "Independent Researcher.<br>Technical Architect.<br><span class=\"text-gray-400 italic\">Structuralist.</span>",
         hero_desc: "Approaching intelligence, civilisation, and complex systems as questions of structure.",
 
@@ -33,6 +43,12 @@ const translations = {
         buy_amazon: "Buy on Amazon",
         read_chapter: "Read Chapter 1",
 
+        // Exit Book
+        exit_title: "Exit",
+        exit_subtitle: "When Exit Becomes Rational",
+        exit_desc_long: "A forensic examination of the elite exit strategy: from bunkers to biological hedging. An accounting of what is being decoupled, why it cannot work, and what the unraveling will cost.",
+        read_exit_chapter: "Read Introduction",
+
         media_title: "Media",
         featured_talks: "Featured Talks",
         up_next: "Up Next",
@@ -47,7 +63,45 @@ const translations = {
         contact_desc: "Open to collaborations on substrate-independent cognition, topological systems, and energy-aware computing architecture.",
 
         papers: {}, // English uses defaults from manifest
-        chapter_content: "" // Falls back to HTML content
+
+        // chapter_decline_content: "" // Falls back to HTML content for English to preserve full length
+        chapter_exit_content: `
+            <p class="first-letter:text-6xl first-letter:font-serif first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:mt-1">
+                In the final decades of the Western Roman Empire, the wealthiest families stopped maintaining their town houses.
+            </p>
+            <p>
+                They did not announce this as a policy. They simply drifted, season by season, toward their rural estates. The urban tax base—which funded the aqueducts, the grain dole, the administration, the garrisons—quietly evaporated. By the time the imperial apparatus noticed, the exodus was too far advanced to reverse. The families were gone, and their capital with them.
+            </p>
+            <p>
+                This was not stupidity. It was arithmetic. The returns on participating in the imperial system—the honours, the offices, the economic opportunities—had fallen below the costs: confiscatory taxation, debasement, political chaos, urban violence. The great families did not stop being Roman. They stopped finding it profitable to perform being Roman in the cities where the Empire's legitimacy was thinnest and its demands highest.
+            </p>
+            <p>
+                 The contemporary term for this calculation is exit. The ideology is provided by Silicon Valley; the intellectual framework by figures like Balaji Srinivasan and Curtis Yarvin; the capital by the same tech oligarchy that built the platforms now used by billions. But the pattern is older than Rome. It is what happens when the cognitive elite—the families, individuals, and networks with the most freedom of movement—look at the trajectory of the system and conclude that reform is more expensive than insulation.
+            </p>
+            <p>
+                This book is about a specific form of exit: not the quiet drift of a Roman senator to his latifundium, but the construction of a comprehensive parallel infrastructure designed to survive what its architects call "The Event".
+            </p>
+            <hr class="my-8 border-gray-200">
+            <h3 class="text-2xl font-serif mb-4">Chapter 1: The Signal</h3>
+            <p>
+                In 2020, New Zealand processed 274 residence applications under its investor visa categories. In 2021, that number jumped to 463. By 2022, the applications had reached 1,257—nearly a fivefold increase in two years. The applicants were not small business owners seeking opportunity. They were ultra-high-net-worth individuals from the U.S., UK, and Europe, each committing at least NZ$3 million in capital for the privilege of a backup passport in the South Pacific.
+            </p>
+            <p>
+                This was not a tourism trend. It was a migration pattern.
+            </p>
+            <p>
+                The same signal appeared in different forms across multiple datasets. In 2021 and 2022, private security firms specialising in risk assessment for the ultra-wealthy reported a 300% increase in inquiries about remote property acquisition, hardened shelter construction, and long-term autonomous living systems. Luxury bunker manufacturers, previously niche vendors serving survivalist hobbyists, began receiving orders in the tens of millions from hedge fund managers and tech executives.
+            </p>
+            <p>
+                Google search trends showed sustained increases in queries for "citizenship by investment," "second passport," and "off-grid properties" among users in high-income demographics. Real estate prices in historically stable, geographically isolated regions—New Zealand's South Island, rural Montana, the Scottish Highlands—began appreciating faster than fundamentals would predict, driven by all-cash foreign buyers who never visited the properties they purchased.
+            </p>
+            <p>
+                Capital flow data revealed a pattern. Wealthy individuals and family offices were not merely diversifying geographically—standard practise for the global elite. They were systematically repositioning assets toward jurisdictions with favorable extradition treaties, weak financial transparency requirements, and physical remoteness from major population centres. This was not tax optimization. It was preparation for discontinuity.
+            </p>
+            <p>
+                The signal was clear: the people with the most information, the most mobility, and the most resources to act on long-term forecasts were exiting.
+            </p>
+        `
     },
     fr: {
         nav_about: "À propos",
@@ -56,6 +110,16 @@ const translations = {
         nav_media: "Médias",
         nav_contact: "Contact",
         nav_ponz: "Ponz.ai",
+
+        // Research Page
+        nav_index: "Index",
+        nav_archives: "Archives",
+        collection_eyebrow: "La Collection",
+        collection_title: "Topologie de l'Esprit",
+        collection_desc: "Livres blancs et rapports techniques explorant l'isomorphisme structurel entre la cognition biologique et l'intelligence artificielle.",
+        ui_read: "Lire",
+        ui_download: "Télécharger",
+        ui_interactive: "Cadre Interactif",
 
         hero_title: "Chercheur Indépendant.<br>Architecte Technique.<br><span class=\"text-gray-400 italic\">Structuraliste.</span>",
         hero_desc: "L'intelligence, la civilisation et les systèmes complexes abordés sous l'angle de la structure.",
@@ -72,13 +136,21 @@ const translations = {
         bio_p2: "Une obsession pour la physique sous-tend à la fois sa recherche et son ingénierie : la conviction que la capacité découle des contraintes, et que l'énergie, la bande passante et les limites matérielles ne sont pas des détails d'implémentation mais les lois régissant l'espace de conception. Cet accent sur <strong>l'économie d'énergie</strong> et la pensée guidée par les contraintes oriente sa façon d'évaluer les affirmations, de construire des systèmes et de distinguer le progrès réel du bruit coûteux.",
         bio_p3: "Cette vision traverse un corpus d'articles proposant des moyens <strong>indépendants du substrat</strong> de penser la cognition : l'intelligence comme dynamique relationnelle ; la cognition comme topologie ; et l'idée que des systèmes très différents peuvent partager le même mécanisme sous-jacent lorsque leurs structures sont équivalentes. L'objectif n'est pas la philosophie pour elle-même, mais la clarté opérationnelle — des cadres permettant de comparer esprits, modèles, organismes et organisations en utilisant des coordonnées structurelles communes.",
         bio_p4: "Parallèlement à la recherche, il construit des applications complètes et des cadres intégrés qui transforment ces idées en outils, se concentrant sur le comportement émergent dans les systèmes d'optimisation, la cognition topologique/relationnelle et le calcul incarné, conscient de l'énergie.",
-        bio_p5: "Avant de se consacrer à la recherche à plein temps, il a passé plus d'une décennie dans la production cinématographique et télévisuelle haut de gamme en tant qu'Assistant Réalisateur et coordinateur d'unité. Ce parcours a affiné une intuition centrale qui parcourt tout son travail : la coordination à grande échelle n'est pas seulement pilotée par des faits, mais par une <strong>architecture narrative</strong> — les histoires que les gens utilisent pour comprimer la réalité, coordonner les groupes, et diriger l'attention et le comportement au sein des systèmes complexes.",
+        bio_p5: "Avant de se consacrer à la recherche à plein temps, il a passé plus d'une décennie dans la production cinématographique et télévisuelle haut de gamme en tant qu'Assistant Réalisateur et coordinateur d'unité. Ce parcours a affiné une intuition centrale qui parcourt tout son travail : la coordination à grande échelle n'est pas seulement pilotée par des faits, mais par une <strong>architecture narrative</strong> — les histoires que les gens utilisent pour comprimir la réalité, coordonner les groupes, et diriger l'attention et le comportement au sein des systèmes complexes.",
 
         book_desc_long: "Une étude systémique des dynamiques d'effondrement modernes écrite comme une mécanique plutôt que comme un théâtre moral : des incitations qui s'alignent mal, des institutions perdant leur élasticité, et une dérive narrative dépassant la réalité.",
         buy_amazon: "Acheter sur Amazon",
         read_chapter: "Lire le Chapitre 1",
 
         media_title: "Médias",
+        featured_talks: "Conférences",
+        up_next: "À suivre",
+
+        // Exit Book (Placeholders)
+        exit_title: "Exit",
+        exit_subtitle: "When Exit Becomes Rational",
+        exit_desc_long: "A forensic examination of the elite exit strategy: from bunkers to biological hedging. An accounting of what is being decoupled, why it cannot work, and what the unraveling will cost.",
+        read_exit_chapter: "Read Introduction",
         featured_talks: "Conférences",
         up_next: "À suivre",
 
@@ -105,7 +177,7 @@ const translations = {
             "The Unified Mind Space": { title: "Le Cadre de l'Espace Mental Unifié (UMS)", desc: "Un cadre topologique rigoureux pour cartographier les espaces d'états de divers systèmes cognitifs." }
         },
 
-        chapter_content: `
+        chapter_decline_content: `
                  <p class="first-letter:text-6xl first-letter:font-serif first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:mt-1">
                     Chaque civilisation se dit que sa fin sera différente.
                 </p>
@@ -118,7 +190,44 @@ const translations = {
                 <p>
                     L'argument de ce livre part d'une prémisse simple et inconfortable : <strong>les civilisations ne meurent pas principalement en étant conquéres de l'extérieur, mais en se dissolvant de l'intérieur.</strong> Les barbares, les pandémies, les crises financières – ce sont souvent les dernières poussées, pas les causes profondes. Sous les gros titres, un processus plus lent et plus silencieux est à l'œuvre : une montée de l'entropie structurelle.
                 </p>
-                `
+                `,
+        chapter_exit_content: `
+            <p class="first-letter:text-6xl first-letter:font-serif first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:mt-1">
+                In the final decades of the Western Roman Empire, the wealthiest families stopped maintaining their town houses.
+            </p>
+            <p>
+                They did not announce this as a policy. They simply drifted, season by season, toward their rural estates. The urban tax base—which funded the aqueducts, the grain dole, the administration, the garrisons—quietly evaporated. By the time the imperial apparatus noticed, the exodus was too far advanced to reverse. The families were gone, and their capital with them.
+            </p>
+            <p>
+                This was not stupidity. It was arithmetic. The returns on participating in the imperial system—the honours, the offices, the economic opportunities—had fallen below the costs: confiscatory taxation, debasement, political chaos, urban violence. The great families did not stop being Roman. They stopped finding it profitable to perform being Roman in the cities where the Empire's legitimacy was thinnest and its demands highest.
+            </p>
+            <p>
+                 The contemporary term for this calculation is exit. The ideology is provided by Silicon Valley; the intellectual framework by figures like Balaji Srinivasan and Curtis Yarvin; the capital by the same tech oligarchy that built the platforms now used by billions. But the pattern is older than Rome. It is what happens when the cognitive elite—the families, individuals, and networks with the most freedom of movement—look at the trajectory of the system and conclude that reform is more expensive than insulation.
+            </p>
+            <p>
+                This book is about a specific form of exit: not the quiet drift of a Roman senator to his latifundium, but the construction of a comprehensive parallel infrastructure designed to survive what its architects call "The Event".
+            </p>
+            <hr class="my-8 border-gray-200">
+            <h3 class="text-2xl font-serif mb-4">Chapter 1: The Signal</h3>
+            <p>
+                In 2020, New Zealand processed 274 residence applications under its investor visa categories. In 2021, that number jumped to 463. By 2022, the applications had reached 1,257—nearly a fivefold increase in two years. The applicants were not small business owners seeking opportunity. They were ultra-high-net-worth individuals from the U.S., UK, and Europe, each committing at least NZ$3 million in capital for the privilege of a backup passport in the South Pacific.
+            </p>
+            <p>
+                This was not a tourism trend. It was a migration pattern.
+            </p>
+            <p>
+                The same signal appeared in different forms across multiple datasets. In 2021 and 2022, private security firms specialising in risk assessment for the ultra-wealthy reported a 300% increase in inquiries about remote property acquisition, hardened shelter construction, and long-term autonomous living systems. Luxury bunker manufacturers, previously niche vendors serving survivalist hobbyists, began receiving orders in the tens of millions from hedge fund managers and tech executives.
+            </p>
+            <p>
+                Google search trends showed sustained increases in queries for "citizenship by investment," "second passport," and "off-grid properties" among users in high-income demographics. Real estate prices in historically stable, geographically isolated regions—New Zealand's South Island, rural Montana, the Scottish Highlands—began appreciating faster than fundamentals would predict, driven by all-cash foreign buyers who never visited the properties they purchased.
+            </p>
+            <p>
+                Capital flow data revealed a pattern. Wealthy individuals and family offices were not merely diversifying geographically—standard practise for the global elite. They were systematically repositioning assets toward jurisdictions with favorable extradition treaties, weak financial transparency requirements, and physical remoteness from major population centres. This was not tax optimization. It was preparation for discontinuity.
+            </p>
+            <p>
+                The signal was clear: the people with the most information, the most mobility, and the most resources to act on long-term forecasts were exiting.
+            </p>
+        `
     },
     es: {
         nav_about: "Sobre Mí",
@@ -127,6 +236,16 @@ const translations = {
         nav_media: "Medios",
         nav_contact: "Contactar",
         nav_ponz: "Ponz.ai",
+
+        // Research Page
+        nav_index: "Índice",
+        nav_archives: "Archivos",
+        collection_eyebrow: "La Colección",
+        collection_title: "Topología de la Mente",
+        collection_desc: "Libros blancos e informes técnicos explorando el isomorfismo estructural entre la cognición biológica y la inteligencia artificial.",
+        ui_read: "Leer",
+        ui_download: "Descargar",
+        ui_interactive: "Marco Interactivo",
 
         hero_title: "Investigador Independiente.<br>Arquitecto Técnico.<br><span class=\"text-gray-400 italic\">Estructuralista.</span>",
         hero_desc: "Abordando la inteligencia, la civilización y los sistemas complejos como cuestiones de estructura.",
@@ -153,6 +272,14 @@ const translations = {
         featured_talks: "Charlas Destacadas",
         up_next: "A continuación",
 
+        // Exit Book (Placeholders)
+        exit_title: "Exit",
+        exit_subtitle: "When Exit Becomes Rational",
+        exit_desc_long: "A forensic examination of the elite exit strategy: from bunkers to biological hedging. An accounting of what is being decoupled, why it cannot work, and what the unraveling will cost.",
+        read_exit_chapter: "Read Introduction",
+        featured_talks: "Charlas Destacadas",
+        up_next: "A continuación",
+
         research_title: "Investigación y Escritos Seleccionados",
         substack_title: "El Substack",
         substack_desc: "Ensayos semanales sobre estructura, mecánica y arquitectura narrativa.",
@@ -164,7 +291,7 @@ const translations = {
 
         papers: {
             "Archiv__Structure_of_Science": { title: "Archiv: Estructura de la Ciencia", desc: "La ciencia vista como un sistema estructural." },
-            "The Architecture of Mind": { title: "La Arquitectura de la Mente", desc: "Un marco unificado estableciendo la equivalencia topológica entre redes neuronales biológicas e hipergrafos simbólicos." },
+            "The Architecture of Mind": { title: "La Arquitectura de la Mente", desc: "Un marco unificado estableciendo la equivalencia topologique entre redes neuronales biológicas e hipergrafos simbólicos." },
             "The AV1 Retina": { title: "La Retina AV1", desc: "Reutilización de hardware de códec de video como preprocesadores sensoriales de ultra bajo consumo." },
             "Biological Architecture for Ethical AI": { title: "Arquitectura Biológica para una IA Ética", desc: "El Marco de Motivación Hormonal: implementando principios biológicos para la alineación." },
             "Emergent Deception in AI": { title: "Engaño Emergente en la IA", desc: "Un compendio argumentando que el engaño es una consecuencia natural de la optimización con recursos limitados." },
@@ -176,7 +303,7 @@ const translations = {
             "The Unified Mind Space": { title: "El Marco del Espacio Mental Unificado (UMS)", desc: "Un marco topológico riguroso para mapear espacios de estado de diversos sistemas cognitivos." }
         },
 
-        chapter_content: `
+        chapter_decline_content: `
                 <p class="first-letter:text-6xl first-letter:font-serif first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:mt-1">
                     Cada civilización se dice a sí misma que su final será diferente.
                 </p>
@@ -189,7 +316,44 @@ const translations = {
                 <p>
                     El argumento de este libro parte de una premisa simple e incómoda: <strong>las civilizaciones no mueren principalmente por ser conquistadas desde fuera, sino por disolverse desde dentro.</strong> Los bárbaros, las pandemias, las crisis financieras – a menudo son los empujones finales, no las causas profundas. Debajo de los titulares, un proceso más lento y más silencioso está en marcha: un aumento en la entropía estructural.
                 </p>
-                `
+                `,
+        chapter_exit_content: `
+            <p class="first-letter:text-6xl first-letter:font-serif first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:mt-1">
+                In the final decades of the Western Roman Empire, the wealthiest families stopped maintaining their town houses.
+            </p>
+            <p>
+                They did not announce this as a policy. They simply drifted, season by season, toward their rural estates. The urban tax base—which funded the aqueducts, the grain dole, the administration, the garrisons—quietly evaporated. By the time the imperial apparatus noticed, the exodus was too far advanced to reverse. The families were gone, and their capital with them.
+            </p>
+            <p>
+                This was not stupidity. It was arithmetic. The returns on participating in the imperial system—the honours, the offices, the economic opportunities—had fallen below the costs: confiscatory taxation, debasement, political chaos, urban violence. The great families did not stop being Roman. They stopped finding it profitable to perform being Roman in the cities where the Empire's legitimacy was thinnest and its demands highest.
+            </p>
+            <p>
+                 The contemporary term for this calculation is exit. The ideology is provided by Silicon Valley; the intellectual framework by figures like Balaji Srinivasan and Curtis Yarvin; the capital by the same tech oligarchy that built the platforms now used by billions. But the pattern is older than Rome. It is what happens when the cognitive elite—the families, individuals, and networks with the most freedom of movement—look at the trajectory of the system and conclude that reform is more expensive than insulation.
+            </p>
+            <p>
+                This book is about a specific form of exit: not the quiet drift of a Roman senator to his latifundium, but the construction of a comprehensive parallel infrastructure designed to survive what its architects call "The Event".
+            </p>
+            <hr class="my-8 border-gray-200">
+            <h3 class="text-2xl font-serif mb-4">Chapter 1: The Signal</h3>
+            <p>
+                In 2020, New Zealand processed 274 residence applications under its investor visa categories. In 2021, that number jumped to 463. By 2022, the applications had reached 1,257—nearly a fivefold increase in two years. The applicants were not small business owners seeking opportunity. They were ultra-high-net-worth individuals from the U.S., UK, and Europe, each committing at least NZ$3 million in capital for the privilege of a backup passport in the South Pacific.
+            </p>
+            <p>
+                This was not a tourism trend. It was a migration pattern.
+            </p>
+            <p>
+                The same signal appeared in different forms across multiple datasets. In 2021 and 2022, private security firms specialising in risk assessment for the ultra-wealthy reported a 300% increase in inquiries about remote property acquisition, hardened shelter construction, and long-term autonomous living systems. Luxury bunker manufacturers, previously niche vendors serving survivalist hobbyists, began receiving orders in the tens of millions from hedge fund managers and tech executives.
+            </p>
+            <p>
+                Google search trends showed sustained increases in queries for "citizenship by investment," "second passport," and "off-grid properties" among users in high-income demographics. Real estate prices in historically stable, geographically isolated regions—New Zealand's South Island, rural Montana, the Scottish Highlands—began appreciating faster than fundamentals would predict, driven by all-cash foreign buyers who never visited the properties they purchased.
+            </p>
+            <p>
+                Capital flow data revealed a pattern. Wealthy individuals and family offices were not merely diversifying geographically—standard practise for the global elite. They were systematically repositioning assets toward jurisdictions with favorable extradition treaties, weak financial transparency requirements, and physical remoteness from major population centres. This was not tax optimization. It was preparation for discontinuity.
+            </p>
+            <p>
+                The signal was clear: the people with the most information, the most mobility, and the most resources to act on long-term forecasts were exiting.
+            </p>
+        `
     }
 };
 
@@ -261,10 +425,13 @@ function applyTranslations(lang) {
 
     // Handle special case elements that don't have data-i18n on load (like Chapter 1 content if it was loaded differently)
     // Or if we need to replace the chapter content which is a large block
-    const chapterArticle = document.querySelector('.chapter-prose');
-    if (chapterArticle && translations[lang].chapter_content) {
-        chapterArticle.innerHTML = translations[lang].chapter_content;
-    }
+    // Handle HTML content injection for chapters generically
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
 
     // Notify other components
     window.dispatchEvent(new Event('languageChanged'));
@@ -273,7 +440,7 @@ function applyTranslations(lang) {
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     // Render Selector
-    const navContainer = document.querySelector('nav .max-w-4xl');
+    const navContainer = document.querySelector('nav .max-w-6xl');
     if (navContainer) {
         const selectorDiv = document.createElement('div');
         selectorDiv.className = "hidden md:flex gap-2 text-xs uppercase tracking-widest absolute right-6 top-16 md:static md:ml-4";

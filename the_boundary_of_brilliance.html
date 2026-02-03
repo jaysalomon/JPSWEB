@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,75 +8,406 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Exo+2:ital,wght@0,300;0,600;0,800;1,400&family=JetBrains+Mono:wght@400;700&display=swap');
 
-        .tech-bg {
-            background-color: #0f172a;
-            background-image: 
-                linear-gradient(#1e293b 1px, transparent 1px),
-                linear-gradient(90deg, #1e293b 1px, transparent 1px);
-            background-size: 40px 40px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #f0abfc;
         }
-        
-        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        h1,
+        h2,
+        h3,
+        .cosmic-font {
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Cosmic Background */
+        .stars-bg {
+            background-color: #000000;
+            background-image:
+                radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 2px),
+                radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 3px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+        }
+
+        .chaos-gradient-text {
+            background: linear-gradient(to right, #e879f9, #22d3ee, #facc15);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(232, 121, 249, 0.5);
+        }
+
+        .glass-panel-chaos {
+            background: rgba(20, 10, 30, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(232, 121, 249, 0.3);
+            box-shadow: 0 0 40px rgba(232, 121, 249, 0.1);
+        }
+
+        /* Glitchy Hover */
+        .glitch-hover:hover {
+            animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: #22d3ee;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                transform: translate(0)
+            }
+
+            20% {
+                transform: translate(-2px, 2px)
+            }
+
+            40% {
+                transform: translate(-2px, -2px)
+            }
+
+            60% {
+                transform: translate(2px, 2px)
+            }
+
+            80% {
+                transform: translate(2px, -2px)
+            }
+
+            100% {
+                transform: translate(0)
+            }
+        }
     </style>
 </head>
-<body class="min-h-screen bg-slate-950 text-slate-100 tech-bg pb-20">
 
-    <nav class="absolute top-6 left-6 z-50">
-        <a href="research.html" class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium">
-            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Research
-        </a>
+<body class="min-h-screen stars-bg selection:bg-fuchsia-500/30 selection:text-fuchsia-100">
+
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 glass-panel-chaos border-b border-fuchsia-500/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="research.html"
+                class="flex items-center gap-2 text-fuchsia-300/60 hover:text-cyan-400 transition-colors text-sm font-medium tracking-wide">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>RETURN TO NEXUS</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm text-fuchsia-200/50 uppercase tracking-widest font-bold">
+                <a href="#tightrope" class="hover:text-fuchsia-400 transition-colors">The Tightrope</a>
+                <a href="#simulator" class="hover:text-cyan-400 transition-colors">Play God (λ)</a>
+                <a href="#cosmic" class="hover:text-amber-400 transition-colors">Galactic Minds</a>
+            </div>
+            <a href="assets/papers/edgeofchaos.pdf" target="_blank"
+                class="px-5 py-2 clip-path-slant bg-fuchsia-600 hover:bg-cyan-600 text-white font-bold text-xs uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(232,121,249,0.4)] hover:shadow-[0_0_30px_rgba(34,211,238,0.6)]">
+                Access Data
+            </a>
+        </div>
     </nav>
 
-    <header class="relative pt-24 pb-32 px-6 text-center">
-        <div class="inline-block mb-6 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-sm font-medium tracking-wider uppercase">
-            Complexity Science • 2025
+    <!-- Hero Section -->
+    <header class="relative pt-40 pb-32 px-6 text-center overflow-hidden">
+        <!-- Nebula Glows -->
+        <div
+            class="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-fuchsia-600/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen">
         </div>
-        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
-            The Boundary of Brilliance
-        </h1>
-        <p class="text-xl md:text-2xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
-            A tale of order, chaos, and universal minds. Exploring criticality as the optimal regime for intelligence.
-        </p>
+        <div
+            class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen">
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto">
+            <h1
+                class="text-6xl md:text-8xl font-black text-white mb-6 leading-none tracking-tighter cosmic-font uppercase">
+                The Boundary <br />
+                of <span class="chaos-gradient-text">Brilliance</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-fuchsia-200/70 font-light max-w-3xl mx-auto leading-relaxed mb-12">
+                Intelligence is a phase transition. A precarious dance on the tightrope between
+                <span class="text-cyan-400 font-normal">Frozen Order</span> and
+                <span class="text-fuchsia-400 font-normal">Noisy Chaos</span>.
+            </p>
+
+            <div class="flex justify-center gap-2 mb-16">
+                <div class="w-1 h-20 bg-gradient-to-b from-fuchsia-500 to-transparent"></div>
+            </div>
+        </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 -mt-10 relative z-20 space-y-24">
-        <section class="bg-slate-900/90 backdrop-blur border border-slate-700 p-8 md:p-12 rounded-lg shadow-2xl">
-            <h2 class="text-3xl font-serif text-white mb-6">Abstract</h2>
-            <p class="text-slate-300 leading-loose text-lg">
-                A tale of order, chaos, and universal minds. Exploring criticality as the optimal regime for intelligence. This work investigates the core dynamics of Complexity Science, aiming to resolve persistent inconsistencies in current computational models. By applying a rigorous topological lens, we demonstrate that system behavior is not random but governed by predictable invariants.
-            </p>
-            <div class="mt-8 pt-8 border-t border-slate-800 flex gap-4">
-                 <a href="assets/papers/edgeofchaos.pdf" target="_blank" class="px-6 py-3 bg-white text-slate-900 font-bold rounded hover:bg-slate-200 transition-colors flex items-center gap-2">
-                    <i data-lucide="file-text" class="w-4 h-4"></i> Read Full Paper
-                 </a>
+    <main class="max-w-6xl mx-auto px-6 pb-24 space-y-40">
+
+        <!-- The Tightrope (Concept) -->
+        <section id="tightrope" class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <h2 class="text-4xl text-white cosmic-font font-bold">The Edge of Chaos</h2>
+                <p class="text-fuchsia-100/60 leading-7 text-lg">
+                    In the 1980s, Christopher Langton discovered a "critical" zone in cellular automata ($\lambda
+                    \approx 0.273$).
+                </p>
+                <ul class="space-y-4 text-fuchsia-200/80">
+                    <li class="flex gap-4 items-start">
+                        <i data-lucide="snowflake" class="w-6 h-6 text-cyan-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Too Ordered (Solid)</strong>
+                            Nothing changes. The system freezes. No computation.
+                        </div>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <i data-lucide="flame" class="w-6 h-6 text-orange-500 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Too Chaotic (Gas)</strong>
+                            Random noise. Information is lost instantly.
+                        </div>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <i data-lucide="zap" class="w-6 h-6 text-fuchsia-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">The Edge (Liquid Crystal)</strong>
+                            Complex, self-sustaining structures emerge. Life, Intelligence, and the Universe exist here.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="relative group">
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-fuchsia-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200">
+                </div>
+                <div class="relative glass-panel-chaos p-8 rounded-lg">
+                    <div class="font-mono text-center space-y-2">
+                        <div class="text-xs text-fuchsia-500 uppercase tracking-widest">Lyapunov Exponent</div>
+                        <div class="text-5xl font-bold text-white">$\lambda \approx 0$</div>
+                        <p class="text-xs text-cyan-400">Maximize Complexity</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="grid md:grid-cols-3 gap-6">
-            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded">
-                <i data-lucide="layers" class="text-indigo-400 w-8 h-8 mb-4"></i>
-                <h3 class="text-xl text-white mb-2">Structure</h3>
-                <p class="text-slate-400 text-sm">Defining the manifold geometry underlying the observed phenomena.</p>
+        <!-- Simulator -->
+        <section id="simulator" class="glass-panel-chaos p-2 rounded-2xl overflow-hidden border border-fuchsia-500/30">
+            <div
+                class="bg-black/40 p-6 border-b border-fuchsia-500/20 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <h3 class="text-2xl text-white cosmic-font font-bold flex items-center gap-3">
+                        <i data-lucide="cpu" class="text-fuchsia-400"></i> Local CA Simulator
+                    </h3>
+                    <p class="text-fuchsia-200/50 text-sm mt-1 mono">Rule 30/110 Universal Computation Engine</p>
+                </div>
+
+                <div class="flex items-center gap-2 p-1 bg-fuchsia-950/30 rounded-lg border border-fuchsia-500/20">
+                    <button
+                        class="mode-btn px-4 py-2 rounded text-xs font-bold uppercase transition-all text-cyan-300 hover:bg-cyan-900/50"
+                        data-rule="0">Ordered</button>
+                    <button
+                        class="mode-btn px-4 py-2 rounded text-xs font-bold uppercase transition-all bg-fuchsia-600 text-white shadow-[0_0_15px_rgba(232,121,249,0.5)]"
+                        data-rule="110">Critical</button>
+                    <button
+                        class="mode-btn px-4 py-2 rounded text-xs font-bold uppercase transition-all text-orange-400 hover:bg-orange-900/50"
+                        data-rule="30">Chaotic</button>
+                </div>
             </div>
-            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded">
-                <i data-lucide="git-branch" class="text-purple-400 w-8 h-8 mb-4"></i>
-                <h3 class="text-xl text-white mb-2">Dynamics</h3>
-                <p class="text-slate-400 text-sm">Scale-free information propagation and emergent attractor states.</p>
-            </div>
-            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded">
-                <i data-lucide="cpu" class="text-teal-400 w-8 h-8 mb-4"></i>
-                <h3 class="text-xl text-white mb-2">Synthesis</h3>
-                <p class="text-slate-400 text-sm">Integrating biological constraints with silicon scalability.</p>
+
+            <canvas id="ca-canvas" class="w-full h-[400px] block bg-black"></canvas>
+
+            <div class="p-4 bg-black/60 text-center">
+                <p id="rule-desc" class="text-sm text-fuchsia-300 mono">Rule 110: Proven to be Turing Complete. The
+                    boundary where complex structures (gliders) emerge.</p>
             </div>
         </section>
+
+        <!-- Cosmic Comparison -->
+        <section id="cosmic" class="space-y-12 text-center">
+            <div class="max-w-3xl mx-auto space-y-6">
+                <h2 class="text-4xl md:text-5xl text-white cosmic-font font-bold">As Above, So Below</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent mx-auto"></div>
+                <p class="text-lg text-fuchsia-100/60 leading-relaxed">
+                    Vazza & Feletti (2020) discovered a <strong>99.9% statistical similarity</strong> between the human
+                    brain's neuronal network and the Cosmic Web of galaxies.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+                <div
+                    class="p-8 border border-fuchsia-500/20 bg-fuchsia-950/10 rounded-xl hover:border-cyan-500/50 transition-colors">
+                    <div class="text-cyan-400 text-6xl font-bold mb-2 cosmic-font">86B</div>
+                    <div class="text-white font-bold uppercase tracking-wider text-sm">Neurons in Brain</div>
+                </div>
+                <div
+                    class="p-8 border border-fuchsia-500/20 bg-fuchsia-950/10 rounded-xl hover:border-cyan-500/50 transition-colors">
+                    <div class="text-fuchsia-400 text-6xl font-bold mb-2 cosmic-font">100B</div>
+                    <div class="text-white font-bold uppercase tracking-wider text-sm">Galaxies in Universe</div>
+                </div>
+            </div>
+
+            <div class="inline-block p-4 border border-white/10 rounded bg-white/5 text-xs font-mono text-slate-400">
+                Power Spectrum Analysis: Identical fluctuation patterns across 27 orders of magnitude.
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-32 text-center">
+            <a href="assets/papers/edgeofchaos.pdf" target="_blank"
+                class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-fuchsia-600 font-lg hover:bg-fuchsia-500 hover:shadow-[0_0_40px_rgba(232,121,249,0.6)] rounded-none clip-path-slant">
+                <span class="mr-2">DOWNLOAD MANUSCRIPT</span>
+                <i data-lucide="download" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+            </a>
+        </section>
+
     </main>
 
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+
+        // --- 1D Cellular Automata Simulator ---
+        const canvas = document.getElementById('ca-canvas');
+        const ctx = canvas.getContext('2d');
+        const descEl = document.getElementById('rule-desc');
+
+        let width, height;
+        let cells = []; // Current generation (0 or 1)
+        let generation = 0;
+        let rule = 110;
+        const cellSize = 4;
+
+        function resize() {
+            width = canvas.parentElement.clientWidth;
+            height = 400;
+            canvas.width = width;
+            canvas.height = height;
+            reset();
+        }
+        window.addEventListener('resize', resize);
+
+        function reset() {
+            // Init Cells
+            const numCells = Math.ceil(width / cellSize);
+            cells = new Array(numCells).fill(0);
+
+            // Random start? Or single seed? 
+            // Rule 110/30 usually look best with specific seeds or sparse random
+            if (rule === 0) {
+                // Totally random for "Ordered" demo to show it dying? 
+                // Actually rule 0 kills everything instant. Let's do random.
+                cells = cells.map(() => Math.random() > 0.5 ? 1 : 0);
+            } else {
+                // Random sparse
+                cells = cells.map(() => Math.random() > 0.8 ? 1 : 0);
+                // Ensure center is alive
+                cells[Math.floor(numCells / 2)] = 1;
+            }
+
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, width, height);
+            generation = 0;
+        }
+
+        function computeNextGen() {
+            const nextCells = [];
+            const len = cells.length;
+
+            for (let i = 0; i < len; i++) {
+                const left = cells[(i - 1 + len) % len];
+                const center = cells[i];
+                const right = cells[(i + 1) % len];
+
+                // Construct 3-bit integer
+                const pattern = (left << 2) | (center << 1) | right;
+
+                // Get bit from rule
+                const nextState = (rule >> pattern) & 1;
+                nextCells.push(nextState);
+            }
+            return nextCells;
+        }
+
+        function drawRow() {
+            if (generation * cellSize >= height) {
+                // Scroll effect? Or just stop/reset? 
+                // Let's scroll the image up
+                const imageData = ctx.getImageData(0, cellSize, width, height - cellSize);
+                ctx.putImageData(imageData, 0, 0);
+
+                // Clear bottom row
+                ctx.fillStyle = '#000';
+                ctx.fillRect(0, height - cellSize, width, cellSize);
+
+                // Draw new row at bottom
+                drawCellsAt(height - cellSize);
+            } else {
+                drawCellsAt(generation * cellSize);
+            }
+        }
+
+        function drawCellsAt(y) {
+            for (let i = 0; i < cells.length; i++) {
+                if (cells[i] === 1) {
+                    // Color based on rule type
+                    if (rule === 110) ctx.fillStyle = '#e879f9'; // Fuchsia
+                    else if (rule === 30) ctx.fillStyle = '#facc15'; // Yellow/Orange
+                    else ctx.fillStyle = '#22d3ee'; // Cyan
+
+                    ctx.fillRect(i * cellSize, y, cellSize, cellSize);
+                }
+            }
+        }
+
+        function loop() {
+            drawRow();
+            cells = computeNextGen();
+            generation++;
+            requestAnimationFrame(loop);
+        }
+
+        // Buttons
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Reset styles
+                document.querySelectorAll('.mode-btn').forEach(b => {
+                    b.classList.remove('bg-fuchsia-600', 'text-white', 'shadow-[0_0_15px_rgba(232,121,249,0.5)]');
+                    if (b.dataset.rule === '30') b.classList.add('text-orange-400', 'hover:bg-orange-900/50');
+                    if (b.dataset.rule === '0') b.classList.add('text-cyan-300', 'hover:bg-cyan-900/50');
+                    if (b.dataset.rule === '110') b.classList.add('text-fuchsia-300', 'hover:bg-fuchsia-900/50');
+                });
+
+                // Active Style
+                e.target.classList.remove('text-orange-400', 'text-cyan-300', 'hover:bg-orange-900/50', 'hover:bg-cyan-900/50');
+                e.target.classList.add('bg-fuchsia-600', 'text-white', 'shadow-[0_0_15px_rgba(232,121,249,0.5)]');
+
+                rule = parseInt(e.target.dataset.rule);
+
+                // Descriptions
+                if (rule === 0) descEl.innerText = "Order (Rule 0): Total extinction. The system freezes instantly into a vacuum.";
+                if (rule === 30) descEl.innerText = "Chaos (Rule 30): Pseudo-randomness. High complexity but low structure. Used in cryptography.";
+                if (rule === 110) descEl.innerText = "Criticality (Rule 110): Turing Complete. Complex structures (gliders) emerge and interact. The Edge of Chaos.";
+
+                reset();
+            });
+        });
+
+        // Init
+        resize();
+        loop();
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-[#aa0a1e]/0'); // Remove transparency changes if specific style needed
+                nav.style.backgroundColor = 'rgba(20, 10, 30, 0.95)';
+            } else {
+                nav.style.backgroundColor = 'rgba(20, 10, 30, 0.7)';
+            }
+        });
+    </script>
+
+    <style>
+        .clip-path-slant {
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+    </style>
 </body>
+
 </html>

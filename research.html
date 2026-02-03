@@ -8,6 +8,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <meta name="description" content="Research papers by JP Salomon. Cognitive Science, AI Alignment, Complexity.">
+    <meta name="keywords"
+        content="JP Salomon, Research, Cognitive Science, AI Alignment, Complexity, Structural Dynamics">
+    <meta name="author" content="JP Salomon">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Research | JP Salomon">
+    <meta property="og:description"
+        content="Research papers by JP Salomon. Cognitive Science, AI Alignment, Complexity.">
+    <meta property="og:image" content="https://jpsalomon.com/assets/images/DeclineCover.png">
+    <meta property="og:url" content="https://jpsalomon.com/research.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@JPSalomon">
+    <meta name="twitter:title" content="Research | JP Salomon">
+    <meta name="twitter:description"
+        content="Research papers by JP Salomon. Cognitive Science, AI Alignment, Complexity.">
+    <meta name="twitter:image" content="https://jpsalomon.com/assets/images/DeclineCover.png">
+
     <link rel="stylesheet" href="css/styles.css">
 
     <script type="application/ld+json">
@@ -151,20 +171,57 @@
             <a href="index.html"
                 class="text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-black flex items-center gap-2 group">
                 <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i>
-                <span>Index</span>
+                <span data-i18n="nav_index">Index</span>
             </a>
-            <span class="font-serif text-lg font-medium tracking-tight">Archives</span>
+
+            <div class="flex items-center gap-6">
+                <!-- Lang Selector (Injected via JS mostly, but structure here for clarity) -->
+                <div class="hidden md:flex gap-2 text-xs uppercase tracking-widest">
+                    <button class="lang-btn hover:text-black transition-colors" data-lang="en"
+                        onclick="applyTranslations('en')">EN</button>
+                    <span class="text-gray-300">/</span>
+                    <button class="lang-btn hover:text-black transition-colors" data-lang="fr"
+                        onclick="applyTranslations('fr')">FR</button>
+                    <span class="text-gray-300">/</span>
+                    <button class="lang-btn hover:text-black transition-colors" data-lang="es"
+                        onclick="applyTranslations('es')">ES</button>
+                </div>
+
+                <span class="font-serif text-lg font-medium tracking-tight" data-i18n="nav_archives">Archives</span>
+            </div>
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto px-6 py-12">
         <header class="mb-16 max-w-4xl border-b border-gray-200 pb-8">
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-4">The Collection</p>
-            <h1 class="font-serif text-5xl md:text-6xl mb-6 text-gray-900 leading-none">Topology of Mind</h1>
-            <p class="text-lg text-gray-600 leading-relaxed max-w-2xl font-light">
-                Whitepapers and technical reports exploring the structural isomorphism between biological cognition and
-                artificial intelligence.
-            </p>
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-4"
+                        data-i18n="collection_eyebrow">The Collection</p>
+                    <h1 class="font-serif text-5xl md:text-6xl mb-6 text-gray-900 leading-none"
+                        data-i18n="collection_title">Topology of Mind</h1>
+                    <p class="text-lg text-gray-600 leading-relaxed max-w-2xl font-light" data-i18n="collection_desc">
+                        Whitepapers and technical reports exploring the structural isomorphism between biological
+                        cognition and
+                        artificial intelligence.
+                    </p>
+                </div>
+
+                <!-- Social Callout -->
+                <div class="hidden md:block">
+                    <a href="https://twitter.com/JPSalomon" target="_blank"
+                        class="group flex items-center gap-3 px-4 py-2 border border-gray-200 rounded hover:border-black transition-colors">
+                        <div
+                            class="p-2 bg-gray-100 rounded-full group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="twitter" class="w-4 h-4"></i>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-[10px] uppercase tracking-wider text-gray-400">Follow on X</span>
+                            <span class="block text-sm font-bold">@JPSalomon</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </header>
 
         <div id="papers-grid" class="grid-container">
@@ -193,15 +250,39 @@
     </div>
 
     <script src="js/manifest.js"></script>
+    <script src="js/localization.js"></script> <!-- Localization Script Added -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if (window.lucide) lucide.createIcons();
+            // renderGrid is called by localization.js or manually? 
+            // localization.js calls applyTranslations on load, but we need to verify if it handles grid reflow.
+            // Actually, best pattern is: renderGrid() initially, then subscribe to language events.
+
+            renderGrid();
+        });
+
+        // Re-render when language changes to update paper titles/descriptions
+        window.addEventListener('languageChanged', (e) => {
             renderGrid();
         });
 
         function renderGrid() {
             const grid = document.getElementById('papers-grid');
             const papers = window.siteManifest?.papers || [];
+
+            // Get current language and translations
+            const currentLang = localStorage.getItem('jps_lang') || 'en';
+            const paperTranslations = (window.translations && window.translations[currentLang] && window.translations[currentLang].papers)
+                ? window.translations[currentLang].papers
+                : {};
+
+            // Common UI Strings for Cards
+            const uiStrings = {
+                read: (window.translations && window.translations[currentLang] && window.translations[currentLang].ui_read) || "Read",
+                download: (window.translations && window.translations[currentLang] && window.translations[currentLang].ui_download) || "Download",
+                interactive: (window.translations && window.translations[currentLang] && window.translations[currentLang].ui_interactive) || "Interactive Framework"
+            };
+
 
             // Sort: Papers with site_link go first
             papers.sort((a, b) => {
@@ -211,10 +292,14 @@
             });
 
             grid.innerHTML = papers.map(p => {
+                // Localization Lookup
+                const translatedTitle = paperTranslations[p.id] ? paperTranslations[p.id].title : p.title;
+                const translatedDesc = paperTranslations[p.id] ? paperTranslations[p.id].desc : p.desc;
+
                 // Conditional UI for extra links
                 const siteBtn = p.site_link
                     ? `<a href="${p.site_link}" class="shiny-btn w-full mb-3">
-                         <i data-lucide="zap" class="w-3 h-3"></i> Interactive Framework
+                         <i data-lucide="zap" class="w-3 h-3"></i> ${uiStrings.interactive}
                        </a>`
                     : '';
 
@@ -226,8 +311,8 @@
                             <span class="tag-pill">${p.tag}</span>
                             <span class="text-[10px] uppercase tracking-wider text-gray-400 font-mono mt-1">${p.year}</span>
                         </div>
-                        <h2 class="font-serif text-2xl font-medium mb-4 text-gray-900 leading-tight group-hover:underline decoration-1 underline-offset-4">${p.title}</h2>
-                        <p class="text-sm text-gray-600 leading-relaxed font-light line-clamp-3">${p.desc}</p>
+                        <h2 class="font-serif text-2xl font-medium mb-4 text-gray-900 leading-tight group-hover:underline decoration-1 underline-offset-4">${translatedTitle}</h2>
+                        <p class="text-sm text-gray-600 leading-relaxed font-light line-clamp-3">${translatedDesc}</p>
                     </div>
                     
                     <div class="px-8 pb-8 pt-4 relative z-10 mt-auto">
@@ -237,11 +322,11 @@
                         <div class="flex items-center justify-between pt-4 border-t border-gray-100">
                             <button onclick="openReader('${p.link}', '${p.title.replace(/'/g, "\\'")}')" 
                                 class="card-action">
-                                <i data-lucide="eye" class="w-3 h-3"></i> Read
+                                <i data-lucide="eye" class="w-3 h-3"></i> ${uiStrings.read}
                             </button>
                             
                             <a href="${p.link}" download target="_blank" class="card-action">
-                                Download <i data-lucide="download" class="w-3 h-3"></i>
+                                ${uiStrings.download} <i data-lucide="download" class="w-3 h-3"></i>
                             </a>
                         </div>
                     </div>

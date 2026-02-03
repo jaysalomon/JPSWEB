@@ -1,81 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Emergent Vortex-Information Model | JP Salomon</title>
+    <title>EVIM | JP Salomon</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
 
-        .tech-bg {
-            background-color: #0f172a;
-            background-image: 
-                linear-gradient(#1e293b 1px, transparent 1px),
-                linear-gradient(90deg, #1e293b 1px, transparent 1px);
-            background-size: 40px 40px;
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #04151f;
+            color: #e2e8f0;
         }
-        
-        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        h1,
+        h2,
+        h3,
+        .heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Fluid Background */
+        .fluid-bg {
+            background-color: #04151f;
+            background-image:
+                radial-gradient(circle at 100% 0%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+        }
+
+        .flow-gradient-text {
+            background: linear-gradient(135deg, #ccfbf1 0%, #14b8a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(20, 184, 166, 0.3);
+        }
+
+        .glass-panel-fluid {
+            background: rgba(10, 30, 45, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #2dd4bf;
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 0 10px rgba(45, 212, 191, 0.5);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #115e59;
+            border-radius: 2px;
+        }
     </style>
 </head>
-<body class="min-h-screen bg-slate-950 text-slate-100 tech-bg pb-20">
 
-    <nav class="absolute top-6 left-6 z-50">
-        <a href="research.html" class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium">
-            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Research
-        </a>
+<body class="min-h-screen fluid-bg selection:bg-teal-500/30 selection:text-teal-100">
+
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 glass-panel-fluid border-b border-teal-500/10 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="research.html"
+                class="flex items-center gap-2 text-slate-400 hover:text-teal-400 transition-colors text-sm font-medium">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span class="heading uppercase tracking-wide text-xs">Back to Research</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-xs text-slate-400 heading uppercase tracking-wider font-bold">
+                <a href="#vortex" class="hover:text-teal-400 transition-colors">Vortex Dynamics</a>
+                <a href="#viscosity" class="hover:text-cyan-400 transition-colors">Information Viscosity</a>
+                <!-- <a href="#validation" class="hover:text-white transition-colors">Validation</a> -->
+            </div>
+            <a href="assets/papers/evim_complete.pdf" target="_blank"
+                class="px-4 py-1.5 rounded bg-teal-900/30 border border-teal-500/30 text-teal-400 text-xs font-bold hover:bg-teal-900/50 transition-all flex items-center gap-2 heading uppercase">
+                <i data-lucide="file-text" class="w-3 h-3"></i> Read Paper
+            </a>
+        </div>
     </nav>
 
-    <header class="relative pt-24 pb-32 px-6 text-center">
-        <div class="inline-block mb-6 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-sm font-medium tracking-wider uppercase">
-            Intelligence Theory • 2025
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-24 px-6 text-center overflow-hidden">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-teal-900/10 rounded-full blur-[120px] pointer-events-none">
         </div>
-        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
-            The Emergent Vortex-Information Model
-        </h1>
-        <p class="text-xl md:text-2xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
-            A unified mathematical framework modeling intelligence as persistent, scale-free patterns of information flow.
-        </p>
+
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <div
+                class="inline-flex items-center gap-2 mb-6 text-teal-500/80 text-xs font-mono tracking-widest uppercase">
+                <i data-lucide="wind" class="w-3 h-3 animate-spin-slow"></i>
+                Universal Model of Emergence
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight tracking-tight heading">
+                Emergent <br />
+                <span class="flow-gradient-text">Vortex-Information</span> Model
+            </h1>
+
+            <p class="text-xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-10">
+                Intelligence is not a static object, but a <span class="text-teal-200">persistent, scale-free
+                    flow</span> of information that maintains stability through vortex dynamics.
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#viscosity"
+                    class="px-8 py-3 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-lg transition-all shadow-lg shadow-teal-900/50 flex items-center justify-center gap-2">
+                    <i data-lucide="waves" class="w-4 h-4"></i> Run Fluid Simulation
+                </a>
+            </div>
+        </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 -mt-10 relative z-20 space-y-24">
-        <section class="bg-slate-900/90 backdrop-blur border border-slate-700 p-8 md:p-12 rounded-lg shadow-2xl">
-            <h2 class="text-3xl font-serif text-white mb-6">Abstract</h2>
-            <p class="text-slate-300 leading-loose text-lg">
-                A unified mathematical framework modeling intelligence as persistent, scale-free patterns of information flow. This work investigates the core dynamics of Intelligence Theory, aiming to resolve persistent inconsistencies in current computational models. By applying a rigorous topological lens, we demonstrate that system behavior is not random but governed by predictable invariants.
-            </p>
-            <div class="mt-8 pt-8 border-t border-slate-800 flex gap-4">
-                 <a href="assets/papers/evim_complete.pdf" target="_blank" class="px-6 py-3 bg-white text-slate-900 font-bold rounded hover:bg-slate-200 transition-colors flex items-center gap-2">
-                    <i data-lucide="file-text" class="w-4 h-4"></i> Read Full Paper
-                 </a>
+    <main class="max-w-5xl mx-auto px-6 pb-24 space-y-32">
+
+        <!-- Core Hypothesis -->
+        <section id="vortex" class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h2 class="text-3xl text-white heading font-bold">The Hypothesis</h2>
+                <div class="w-16 h-1 bg-teal-500 rounded"></div>
+                <p class="text-slate-400 leading-relaxed text-lg">
+                    Just as a tornado maintains its structure despite the constant flow of air through it, a thought (or
+                    a memory) is a <strong class="text-teal-400">stable vortex of information flow</strong>.
+                </p>
+                <p class="text-slate-400 leading-relaxed">
+                    EVIM unifies:
+                </p>
+                <ul class="space-y-3 text-slate-300 text-sm">
+                    <li class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 bg-teal-400 rounded-full"></div>
+                        <strong>Vortex Dynamics</strong> (Persistence in chaos)
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 bg-teal-400 rounded-full"></div>
+                        <strong>Integrated Information</strong> (Causal efficacy)
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 bg-teal-400 rounded-full"></div>
+                        <strong>Information Viscosity</strong> (Environmental coupling)
+                    </li>
+                </ul>
+            </div>
+            <div
+                class="relative aspect-square glass-panel-fluid rounded-full flex items-center justify-center border-4 border-teal-900/30 overflow-hidden">
+                <!-- Abstract Vortex Visual -->
+                <div
+                    class="absolute inset-0 bg-[url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDc5aGdwbzc5aGdwbzc5aGdwbzc5aGdwbzc5aGdwbzc5aGdwYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btZ3T6y3JT0NaTK/giphy.gif')] bg-cover opacity-10 mix-blend-screen pointer-events-none">
+                </div>
+                <div class="text-center z-10 p-8">
+                    <div class="text-6xl font-bold text-teal-500 mb-2 font-mono">$\eta_{info}$</div>
+                    <div class="text-xs uppercase tracking-widest text-teal-300">Information Viscosity</div>
+                </div>
             </div>
         </section>
 
-        <section class="grid md:grid-cols-3 gap-6">
-            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded">
-                <i data-lucide="layers" class="text-indigo-400 w-8 h-8 mb-4"></i>
-                <h3 class="text-xl text-white mb-2">Structure</h3>
-                <p class="text-slate-400 text-sm">Defining the manifold geometry underlying the observed phenomena.</p>
+        <!-- Interactive Viscosity -->
+        <section id="viscosity" class="glass-panel-fluid p-1 rounded-2xl overflow-hidden border border-teal-500/20">
+            <div
+                class="bg-teal-950/40 p-6 border-b border-teal-500/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="activity" class="text-teal-400"></i>
+                    <div>
+                        <h3 class="text-white font-bold heading">Information Flow Simulator</h3>
+                        <p class="text-xs text-slate-400">Move your mouse to inject information. Adjust viscosity to see
+                            how patterns persist.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-64">
+                    <label class="text-xs text-teal-300 block mb-2 font-mono">Viscosity ($\eta$): <span
+                            id="val-viscosity">0.02</span></label>
+                    <input type="range" min="0.001" max="0.1" step="0.001" value="0.02" id="slider-viscosity">
+                    <div class="flex justify-between text-[10px] text-slate-500 mt-1 uppercase">
+                        <span>Chaos</span>
+                        <span>Structure</span>
+                        <span>Rigidity</span>
+                    </div>
+                </div>
             </div>
-            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded">
-                <i data-lucide="git-branch" class="text-purple-400 w-8 h-8 mb-4"></i>
-                <h3 class="text-xl text-white mb-2">Dynamics</h3>
-                <p class="text-slate-400 text-sm">Scale-free information propagation and emergent attractor states.</p>
-            </div>
-            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded">
-                <i data-lucide="cpu" class="text-teal-400 w-8 h-8 mb-4"></i>
-                <h3 class="text-xl text-white mb-2">Synthesis</h3>
-                <p class="text-slate-400 text-sm">Integrating biological constraints with silicon scalability.</p>
+
+            <div class="relative w-full h-[400px] bg-black cursor-crosshair" id="sim-container">
+                <canvas id="fluid-canvas" class="w-full h-full block"></canvas>
             </div>
         </section>
+
+        <!-- Validation Stats -->
+        <section class="grid md:grid-cols-3 gap-6">
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg">
+                <div class="text-teal-400 text-3xl font-bold mb-1 heading">4x</div>
+                <div class="text-white text-sm font-bold mb-2">Sparsity Increase</div>
+                <p class="text-xs text-slate-500">
+                    Applying EVIM regularization to neural networks achieved 4x more prunable weights with minimal
+                    performance loss.
+                </p>
+            </div>
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg">
+                <div class="text-cyan-400 text-3xl font-bold mb-1 heading">0.98</div>
+                <div class="text-white text-sm font-bold mb-2">Scaling Exponent ($\alpha$)</div>
+                <p class="text-xs text-slate-500">
+                    2D systems followed the predicted power-law scaling ($\alpha \approx 0.98$) exactly as derived from
+                    the theory.
+                </p>
+            </div>
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg">
+                <div class="text-teal-400 text-3xl font-bold mb-1 heading">Stability</div>
+                <div class="text-white text-sm font-bold mb-2">Noise Robustness</div>
+                <p class="text-xs text-slate-500">
+                    Simulations confirmed that stochastic noise actually <em>enhances</em> pattern persistence,
+                    validating the stability theorem.
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="py-24 text-center border-t border-teal-900/30">
+            <h3 class="text-2xl text-white heading font-bold mb-6">Read the Full Paper</h3>
+            <p class="text-slate-400 text-sm max-w-2xl mx-auto mb-8">
+                Dive into the mathematical derivation of the Generalized Vortex Equation and the full experimental
+                validation results.
+            </p>
+            <a href="assets/papers/evim_complete.pdf" target="_blank"
+                class="inline-flex items-center gap-3 px-8 py-4 bg-teal-950 border border-teal-500/50 rounded hover:bg-teal-900 hover:border-teal-400 transition-all group">
+                <span class="text-teal-100 font-bold heading uppercase tracking-widest text-sm">Download PDF</span>
+                <i data-lucide="download"
+                    class="w-4 h-4 text-teal-400 group-hover:translate-y-1 transition-transform"></i>
+            </a>
+        </section>
+
     </main>
 
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+
+        // --- Simplified Fluid Particle Simulation ---
+        const canvas = document.getElementById('fluid-canvas');
+        const ctx = canvas.getContext('2d');
+        const container = document.getElementById('sim-container');
+
+        let width, height;
+        let particles = [];
+        let viscosity = 0.02;
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 2;
+                this.life = 1.0;
+                this.color = Math.random() > 0.5 ? '#14b8a6' : '#22d3ee';
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Viscosity damping
+                this.vx *= (1 - viscosity);
+                this.vy *= (1 - viscosity);
+
+                this.life -= 0.005;
+            }
+
+            draw(ctx) {
+                ctx.globalAlpha = this.life;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function resize() {
+            width = container.clientWidth;
+            height = 400;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Mouse Interaction
+        let isMouseMoving = false;
+        container.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Add particles
+            for (let i = 0; i < 5; i++) {
+                const p = new Particle(x, y);
+                // Add some velocity based on movement? Simplified for now.
+                p.vx += (Math.random() - 0.5) * 5;
+                p.vy += (Math.random() - 0.5) * 5;
+                particles.push(p);
+            }
+        });
+
+        // Loop
+        function loop() {
+            // Trails effect
+            ctx.globalAlpha = 0.1; // Fade out
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.globalCompositeOperation = 'lighter'; // Additive blending for glow
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.update();
+                p.draw(ctx);
+
+                if (p.life <= 0) {
+                    particles.splice(i, 1);
+                }
+            }
+
+            ctx.globalCompositeOperation = 'source-over';
+            requestAnimationFrame(loop);
+        }
+        loop();
+
+        // Slider
+        const slider = document.getElementById('slider-viscosity');
+        const val = document.getElementById('val-viscosity');
+
+        slider.addEventListener('input', (e) => {
+            viscosity = parseFloat(e.target.value);
+            val.innerText = viscosity.toFixed(3);
+        });
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-[#04151f]/95');
+            } else {
+                nav.classList.remove('bg-[#04151f]/95');
+            }
+        });
+    </script>
 </body>
+
 </html>

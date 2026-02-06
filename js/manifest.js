@@ -42,6 +42,15 @@ window.siteManifest = {
     ],
     "papers": [
         {
+            "year": "2026",
+            "title": "The Caffeine Algorithm",
+            "link": "assets/papers/Caffeine Algorithm.pdf",
+            "desc": "A Cognitive State Filter for agents. Introducing biological constraints (Energy, Patience, Arousal) to modulate expression based on internal state.",
+            "tag": "Cognitive Architecture",
+            "site_link": "caffeine.html",
+            "id": "caffeine_algorithm"
+        },
+        {
             "year": "2025",
             "title": "The Architecture of Mind",
             "link": "assets/papers/architectureofmind.pdf",
